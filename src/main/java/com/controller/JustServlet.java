@@ -1,7 +1,7 @@
 package com.controller;
 
-import com.daart.controller.DAO.DAOGenericImpl;
-import com.daart.controller.DAO.EmployeeEntityImpl;
+import com.persistense.dao.DAOGenericImpl;
+import com.persistense.entity.EmployeeEntityImpl;
 import org.json.simple.JSONObject;
 
 import javax.servlet.ServletException;

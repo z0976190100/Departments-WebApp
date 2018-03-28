@@ -3,8 +3,8 @@ package com.service.helpers;
 //Implemented to entities, which require validation of incoming data before processing in persistence operations.
 //Preprocessing in servlet filters.
 
-import com.daart.controller.DAO.DAOGenericImpl;
-import com.daart.controller.DAO.IEntity;
+import com.persistense.dao.DAOGenericImpl;
+import com.persistense.entity.IEntity;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

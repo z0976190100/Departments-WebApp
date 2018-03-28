@@ -1,10 +1,10 @@
 package com.service;
 
-import com.daart.controller.DAO.DAOGenericImpl;
-import com.daart.controller.DAO.EmployeeEntityImpl;
-import com.daart.controller.services.helpers.Command;
-import com.daart.controller.services.helpers.ConfigurationManager;
-import com.daart.controller.services.helpers.MessageManager;
+import com.persistense.dao.DAOGenericImpl;
+import com.persistense.entity.EmployeeEntityImpl;
+import com.service.helpers.Command;
+import com.service.helpers.ConfigurationManager;
+import com.service.helpers.MessageManager;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
@@ -15,7 +15,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import static com.daart.controller.services.helpers.MessageManager.responseMessages;
+import static com.service.helpers.MessageManager.responseMessages;
 
 public class CommandLogin implements Command {
 
