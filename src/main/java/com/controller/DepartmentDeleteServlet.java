@@ -1,9 +1,9 @@
 package com.controller;
 
-import com.daart.controller.DAO.DAOGenericImpl;
-import com.daart.controller.DAO.DepartmentEntityImpl;
-import com.daart.controller.DAO.EmployeeEntityImpl;
-import com.daart.controller.services.helpers.ConfigurationManager;
+import com.persistense.dao.DAOGenericImpl;
+import com.persistense.entity.DepartmentEntityImpl;
+import com.persistense.entity.EmployeeEntityImpl;
+import com.service.helpers.ConfigurationManager;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static com.daart.controller.services.helpers.MessageManager.errorRedirect;
+import static com.service.helpers.MessageManager.errorRedirect;
 
 public class DepartmentDeleteServlet extends HttpServlet{
 

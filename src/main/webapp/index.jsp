@@ -2,9 +2,11 @@
 <%@ page import="static com.service.helpers.MessageManager.responseMessages" %>
 <html>
 <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
     <title>login page</title>
 </head>
-<body>
+<body style="font-family:'Roboto Slab'">
+
 <h2>login to start</h2>
 
 <hr/>

@@ -2,9 +2,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
     <title>Update Department</title>
 </head>
-<body>
+<body style="font-family:'Roboto Slab'">
 <h3>Change the title</h3>
 <form action="/department" method="get">
     <input name="deppid" type="hidden" value="<%=request.getParameter("deppid")%>"/>

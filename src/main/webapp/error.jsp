@@ -8,10 +8,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
     <title>error</title>
 
 </head>
-<body>
+<body style="font-family:'Roboto Slab'">
 <h1>WHOA! AN ERROR.</h1>
 </body>
 </html>

@@ -4,19 +4,23 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
+
 <html>
 <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
     <title>DEPS</title>
 </head>
-<body>
+<body style="font-family:'Roboto Slab'">
 <%--<c:out value="ertyui"/>--%>
 <h3>welcome,  ${cookie.user.value}</h3>
+<form action="/index.jsp" method="get"><input type="submit" value="Exit"/></form>
+<hr/>
 <jsp:useBean id="depps" class="com.persistense.entity.DepartmentRegister" scope="application"></jsp:useBean>
 <h1>DEPARTMENTS</h1>
 <span></span>
 <table border="2" cellpadding="5">
     <tr bgcolor="#999966">
-        <th>id</th>
+       <%-- <th>id</th>--%>
         <th>Title</th>
         <th>Employees</th>
         <th colspan="3">Actions</th>
@@ -27,8 +31,8 @@
 
     <tr>
 
-        <td id=<%=depp.id%>><%=counter++%>
-        </td>
+      <%--  <td id=<%=depp.id%>><%=counter++%>
+        </td>--%>
         <td contenteditable="true"><%=depp.title%>
         </td>
         <td><%=depp.empQuant%>

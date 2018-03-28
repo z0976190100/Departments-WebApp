@@ -9,9 +9,10 @@
 <%@ page import="static com.service.helpers.MessageManager.responseMessages" %>
 <html>
 <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
     <title>update dis emp</title>
 </head>
-<body>
+<body style="font-family:'Roboto Slab'">
 <h3>enjoy your might to CHANGE!</h3>
 <form action="/employee" method="get">
     <input name="command" type="hidden" value="empadd" />

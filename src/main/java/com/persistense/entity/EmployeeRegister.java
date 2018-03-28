@@ -1,5 +1,7 @@
 package com.persistense.entity;
 
+import com.persistense.dao.DAOGenericImpl;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

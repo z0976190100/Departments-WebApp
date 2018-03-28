@@ -1,9 +1,9 @@
 package com.controller;
 
-import com.daart.controller.services.helpers.Command;
-import com.daart.controller.services.helpers.ConfigurationManager;
-import com.daart.controller.services.helpers.MessageManager;
-import com.daart.controller.services.helpers.RequestRouter;
+import com.service.helpers.Command;
+import com.service.helpers.ConfigurationManager;
+import com.service.helpers.MessageManager;
+import com.service.helpers.RequestRouter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

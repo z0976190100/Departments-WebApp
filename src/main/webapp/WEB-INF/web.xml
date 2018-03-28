@@ -2,6 +2,81 @@
  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
-<web-app>
-  <display-name>Archetype Created Web Application</display-name>
+<web-app  xmlns="http://java.sun.com/xml/ns/javaee"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+          version="3.0">
+
+
+  <display-name>FUUUUCK</display-name>
+
+  <jsp-config>
+    <jsp-property-group>
+      <url-pattern>*.jsp</url-pattern>
+      <page-encoding>UTF-8</page-encoding>
+    </jsp-property-group>
+  </jsp-config>
+
+  <servlet>
+    <servlet-name>loginController</servlet-name>
+    <servlet-class>com.controller.CommandServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>loginController</servlet-name>
+    <url-pattern>/main</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>departmentController</servlet-name>
+    <servlet-class>com.controller.DepartmentGetPostServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>departmentController</servlet-name>
+    <url-pattern>/department</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>departmentDeleteController</servlet-name>
+    <servlet-class>com.controller.DepartmentDeleteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>departmentDeleteController</servlet-name>
+    <url-pattern>/departmentdelete</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>employeeController</servlet-name>
+    <servlet-class>com.controller.EmployeeGetPostServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>employeeController</servlet-name>
+    <url-pattern>/employee</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>employeeDeleteController</servlet-name>
+    <servlet-class>com.controller.EmployeeDeleteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>employeeDeleteController</servlet-name>
+    <url-pattern>/employeedelete</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>departmentUpdateController</servlet-name>
+    <servlet-class>com.controller.DepartmentGetPostServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>departmentUpdateController</servlet-name>
+    <url-pattern>/depupd</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>justServlet</servlet-name>
+    <servlet-class>com.controller.JustServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>justServlet</servlet-name>
+    <url-pattern>/just</url-pattern>
+  </servlet-mapping>
 </web-app>
