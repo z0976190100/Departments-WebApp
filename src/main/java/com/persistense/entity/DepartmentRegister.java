@@ -25,7 +25,7 @@ public class DepartmentRegister {
     }*/
 
     public static void listUpdate() {
-        responseMessages = "success";
+
 
         DAOGenericImpl actor = new DAOGenericImpl();
 

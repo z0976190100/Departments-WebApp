@@ -1,4 +1,5 @@
 <%@ page import="com.persistense.entity.DepartmentRegister" %>
+<%@ page import="com.controller.DepartmentGetPostServlet" %>
 <%@ page import="static com.service.utils.MessageManager.responseMessages" %>
 <%@ page import="com.service.utils.MessageManager" %>
 <%@ page language="java" contentType="text/html; utf-8" pageEncoding="utf-8" %>
@@ -69,7 +70,7 @@
         <td>
             <form action="/department" method="post">
                 <input name="command" type="hidden" value="deppadd">
-                <input name="newdepptitle" placeholder="New DEPARTMENT Name" value="">
+                <input name="newdepptitle" placeholder="New DEPARTMENT Title" value="${DepartmentGetPostServlet.depTitleInputValue}">
                 <input type="submit" value="Increase"/>
             </form>
         </td>
