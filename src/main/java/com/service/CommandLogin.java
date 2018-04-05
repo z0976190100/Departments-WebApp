@@ -2,9 +2,9 @@ package com.service;
 
 import com.persistense.dao.DAOGenericImpl;
 import com.persistense.entity.EmployeeEntityImpl;
-import com.service.helpers.Command;
-import com.service.helpers.ConfigurationManager;
-import com.service.helpers.MessageManager;
+import com.service.utils.Command;
+import com.service.utils.ConfigurationManager;
+import com.service.utils.MessageManager;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
@@ -15,7 +15,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import static com.service.helpers.MessageManager.responseMessages;
+import static com.service.utils.MessageManager.responseMessages;
 
 public class CommandLogin implements Command {
 

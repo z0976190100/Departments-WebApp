@@ -2,8 +2,8 @@ package com.controller;
 
 import com.persistense.dao.DAOGenericImpl;
 import com.persistense.entity.DepartmentEntityImpl;
-import com.service.helpers.ConfigurationManager;
-import com.service.helpers.MessageManager;
+import com.service.utils.ConfigurationManager;
+import com.service.utils.MessageManager;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static com.service.helpers.MessageManager.errorRedirect;
-import static com.service.helpers.MessageManager.responseMessages;
+import static com.service.utils.MessageManager.errorRedirect;
+import static com.service.utils.MessageManager.responseMessages;
 
 public class DepartmentGetPostServlet extends HttpServlet {
 

@@ -1,6 +1,6 @@
 <%@ page import="com.persistense.entity.EmployeeRegister" %>
 <%@ page import="com.persistense.entity.EmployeeEntityImpl" %>
-<%@ page import="static com.service.helpers.MessageManager.responseMessages" %>
+<%@ page import="static com.service.utils.MessageManager.responseMessages" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -8,7 +8,7 @@
     <title>deppage</title>
 
 </head>
-<body style="font-family:'Roboto Slab'"><body>
+<body style="font-family:'Roboto Slab'">
 <%
     String depptitle =
             request.getParameter("depptitle");

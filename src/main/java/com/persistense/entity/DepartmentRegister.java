@@ -8,9 +8,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.service.utils.MessageManager.responseMessages;
+
 public class DepartmentRegister {
 
     public static List<DepartmentEntityImpl> deppList = new ArrayList<>();
+    public static String test = "test";
+
 
 
    /* static {
@@ -21,6 +25,7 @@ public class DepartmentRegister {
     }*/
 
     public static void listUpdate() {
+        responseMessages = "success";
 
         DAOGenericImpl actor = new DAOGenericImpl();
 
@@ -45,6 +50,7 @@ public class DepartmentRegister {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
+
             try {
                 if (ps != null) ps.close();
             } catch (SQLException e) {

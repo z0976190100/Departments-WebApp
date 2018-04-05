@@ -1,4 +1,4 @@
-package com.service.helpers;
+package com.service.utils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ResourceBundle;

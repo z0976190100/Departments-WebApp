@@ -1,4 +1,4 @@
-package com.service.helpers;
+package com.service.utils;
 
 //Implemented to entities, which require validation of incoming data before processing in persistence operations.
 //Preprocessing in servlet filters.

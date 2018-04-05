@@ -24,6 +24,30 @@ public class DepartmentEntityImpl implements IEntity {
 
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public int getEmpQuant() {
+        return empQuant;
+    }
+
+    public void setEmpQuant(int empQuant) {
+        this.empQuant = empQuant;
+    }
+
     @Override
     public String getTableName() {
         return this.TABLE_NAME;

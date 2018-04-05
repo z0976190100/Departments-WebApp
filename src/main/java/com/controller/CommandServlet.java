@@ -1,9 +1,9 @@
 package com.controller;
 
-import com.service.helpers.Command;
-import com.service.helpers.ConfigurationManager;
-import com.service.helpers.MessageManager;
-import com.service.helpers.RequestRouter;
+import com.service.utils.Command;
+import com.service.utils.ConfigurationManager;
+import com.service.utils.MessageManager;
+import com.service.utils.RequestRouter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

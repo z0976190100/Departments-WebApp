@@ -1,4 +1,4 @@
-package com.service.helpers;
+package com.service.utils;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;

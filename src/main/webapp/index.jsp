@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; utf-8" pageEncoding="utf-8" %>
-<%@ page import="static com.service.helpers.MessageManager.responseMessages" %>
+<%@ page import="static com.service.utils.MessageManager.responseMessages" %>
 <html>
 <head>
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">

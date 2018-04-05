@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="static com.service.helpers.MessageManager.responseMessages" %>
+<%@ page import="static com.service.utils.MessageManager.responseMessages" %>
 <html>
 <head>
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">

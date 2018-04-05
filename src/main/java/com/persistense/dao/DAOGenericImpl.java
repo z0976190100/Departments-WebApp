@@ -1,7 +1,7 @@
 package com.persistense.dao;
 
 import com.persistense.entity.IEntity;
-import com.service.helpers.ConfigurationManager;
+import com.service.utils.ConfigurationManager;
 
 import java.sql.*;
 import java.util.Map;
