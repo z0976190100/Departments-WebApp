@@ -33,7 +33,7 @@ public class CommandLogin implements Command {
             req.setAttribute("login", "true");
             pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.MAIN_PAGE_PATH);
         } else {
-            responseMessages += MessageManager.getInstance().getProperty(MessageManager.LOGIN_PASSWORD_PROBLEM_MESSAGE)+ "#";
+            responseMessages += MessageManager.getInstance().getProperty(MessageManager.LOGIN_PASSWORD_PROBLEM_MESSAGE) + "#";
             req.setAttribute("errorMessage", MessageManager.getInstance().getProperty(MessageManager.LOGIN_ERROR_MESSAGE));
             pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.LOGIN_PAGE_PATH);
         }
@@ -48,17 +48,14 @@ public class CommandLogin implements Command {
 
         try (
                 PreparedStatement ps = actor.selectAllWhere(new EmployeeEntityImpl(), "login", login);
-                ResultSet rs = ps.getResultSet())
-        {
-
-            rs.next();
-
-            if (rs.getString("pass").equals(pass)) {
-                Cookie cookie = new Cookie("user", rs.getString("first_name"));
-                resp.addCookie(cookie);
-                return true;
+                ResultSet rs = ps.getResultSet()) {
+            if (rs.next()) {
+                if (rs.getString("pass").equals(pass)) {
+                    Cookie cookie = new Cookie("user", rs.getString("first_name"));
+                    resp.addCookie(cookie);
+                    return true;
+                }
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }

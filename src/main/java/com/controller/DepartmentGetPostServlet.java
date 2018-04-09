@@ -19,17 +19,26 @@ import static com.service.utils.MessageManager.responseMessages;
 public class DepartmentGetPostServlet extends HttpServlet {
 
     public static String depTitleInputValue = "";
+    DAOGenericImpl actor = new DAOGenericImpl();
+    Validator validator = new Validator();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        DAOGenericImpl actor = new DAOGenericImpl();
+
         responseMessages = "";
 
-        DepartmentEntityImpl nd = new DepartmentEntityImpl();
+        String newDepTitle = req.getParameter("newdepptitle");
+        DepartmentEntityImpl nd = new DepartmentEntityImpl(newDepTitle);
+
+        if (validator.isExist(nd, "title", nd.title)) {
+            responseMessages += MessageManager.getInstance().getProperty(MessageManager.DEPTITLE_SAVE_PROBLEM_MESSAGE) + "#";
+            depTitleInputValue = nd.title;
+        }
+
         if (actor.updateEntryColoumnWhereId(nd,
                 "title",
                 Long.valueOf(req.getParameter("deppid")),
-                req.getParameter("newdeptitle"))) {
+                nd.title)) {
             String pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.MAIN_PAGE_PATH);
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pagePath);
             try {
@@ -54,8 +63,6 @@ public class DepartmentGetPostServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        DAOGenericImpl actor = new DAOGenericImpl();
-        Validator validator = new Validator();
         responseMessages = "";
 
         String newDepTitle = req.getParameter("newdepptitle");
@@ -64,20 +71,13 @@ public class DepartmentGetPostServlet extends HttpServlet {
         if (validator.isExist(nd, "title", nd.title)) {
             responseMessages += MessageManager.getInstance().getProperty(MessageManager.DEPTITLE_SAVE_PROBLEM_MESSAGE) + "#";
             depTitleInputValue = nd.title;
-            String pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.MAIN_PAGE_PATH);
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pagePath);
-            try {
-                dispatcher.forward(req, resp);
-            } catch (ServletException e) {
-                e.printStackTrace();
-                errorRedirect(req);
-            }
         }
 
         if (responseMessages.equals("")) {
 
                 actor.saveEntry(nd);
                 responseMessages = "New Department record is saved.";
+                depTitleInputValue = "";
             }
 
             String pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.MAIN_PAGE_PATH);

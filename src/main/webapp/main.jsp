@@ -65,22 +65,21 @@
     </c:forEach>
 </table>
 <hr/>
+<c:forEach var="mess" items="${MessageManager.responseMessages.split(\"#\")}">
+    <h3><c:out value="${mess}"/></h3>
+</c:forEach>
 <table>
     <tr>
         <td>
             <form action="/department" method="post">
-                <input name="command" type="hidden" value="deppadd">
-                <input name="newdepptitle" placeholder="New DEPARTMENT Title" value="${DepartmentGetPostServlet.depTitleInputValue}">
+                <input name="command" type="hidden" value="deppadd" />
+                <input name="newdepptitle" placeholder="New DEPARTMENT Title" value="${DepartmentGetPostServlet.depTitleInputValue}" /> <%----%>
                 <input type="submit" value="Increase"/>
             </form>
         </td>
     </tr>
 </table>
 
-
-<c:forEach var="mess" items="${MessageManager.responseMessages.split(\"#\")}">
-    <h3><c:out value="${mess}"/></h3>
-</c:forEach>
 <% responseMessages = ""; %>
 
 </body>

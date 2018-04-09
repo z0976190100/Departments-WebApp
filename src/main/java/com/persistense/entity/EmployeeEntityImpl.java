@@ -1,5 +1,6 @@
 package com.persistense.entity;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,13 +10,14 @@ public class EmployeeEntityImpl implements IEntity {
     final String UNIQUE_TITLE = "login";
 
 
-   public long id;
-   public String firstName;
-   public String lastName;
-   public long  department;
-   public String login;
-   public String pass;
-   public Map<String, String> coloumnValueMap = new HashMap<>();
+    public long id;
+    public String firstName;
+    public String lastName;
+    public long department;
+    public String birthDate;
+    public String login;
+    public String pass;
+    public Map<String, String> coloumnValueMap = new HashMap<>();
 
     public EmployeeEntityImpl() {
     }
@@ -26,6 +28,8 @@ public class EmployeeEntityImpl implements IEntity {
         this.coloumnValueMap.put("first_name", this.firstName);
         this.lastName = lastName;
         this.coloumnValueMap.put("last_name", this.lastName);
+        /*this.birthDate = birthDate;
+        this.coloumnValueMap.put("birth_date", this.birthDate);*/
         this.department = department;
         this.coloumnValueMap.put("department_id_long", Long.toString(this.department));
         this.login = login; // unique title
@@ -58,6 +62,10 @@ public class EmployeeEntityImpl implements IEntity {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+    public String getBirthDate() { return birthDate; }
+
+    public void setBirthDate(String birthDate) { this.birthDate = birthDate; }
 
     public long getDepartment() {
         return department;

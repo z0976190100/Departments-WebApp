@@ -1,7 +1,5 @@
 package com.service.utils;
 
-//Implemented to entities, which require validation of incoming data before processing in persistence operations.
-//Preprocessing in servlet filters.
 
 import com.persistense.dao.DAOGenericImpl;
 import com.persistense.entity.IEntity;
@@ -9,6 +7,8 @@ import com.persistense.entity.IEntity;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Validator {
 
@@ -24,5 +24,13 @@ ResultSet rs = ps.getResultSet()){
         }
         return false;
     }
+
+   public boolean isEmail(String toValidate){
+
+       Pattern emailRegexp = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+       Matcher matcher = emailRegexp.matcher(toValidate);
+       return matcher.find();
+
+   }
 
 }
