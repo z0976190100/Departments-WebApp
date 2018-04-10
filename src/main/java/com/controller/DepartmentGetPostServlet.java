@@ -22,34 +22,33 @@ public class DepartmentGetPostServlet extends HttpServlet {
     DAOGenericImpl actor = new DAOGenericImpl();
     Validator validator = new Validator();
 
+
+    // renaming existing Department
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         responseMessages = "";
+        responseMessages += MessageManager.getInstance().getProperty(MessageManager.EMPTY_FIELD_MESSAGE) + "#";
 
         String newDepTitle = req.getParameter("newdepptitle");
-        DepartmentEntityImpl nd = new DepartmentEntityImpl(newDepTitle);
 
-        if (validator.isExist(nd, "title", nd.title)) {
-            responseMessages += MessageManager.getInstance().getProperty(MessageManager.DEPTITLE_SAVE_PROBLEM_MESSAGE) + "#";
-            depTitleInputValue = nd.title;
-        }
+        if (!newDepTitle.equals("")) {
 
-        if (actor.updateEntryColoumnWhereId(nd,
-                "title",
-                Long.valueOf(req.getParameter("deppid")),
-                nd.title)) {
-            String pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.MAIN_PAGE_PATH);
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pagePath);
-            try {
-                dispatcher.forward(req, resp);
-            } catch (ServletException e) {
-                e.printStackTrace();
-                errorRedirect(req);
+            responseMessages = "";
+
+            DepartmentEntityImpl nd = new DepartmentEntityImpl(newDepTitle);
+
+            if (validator.isExist(nd, "title", nd.title)) {
+                responseMessages += MessageManager.getInstance().getProperty(MessageManager.DEPTITLE_SAVE_PROBLEM_MESSAGE) + "#";
+                depTitleInputValue = nd.title;
             }
-        }
-        responseMessages += MessageManager.getInstance().getProperty(MessageManager.DEPUPD_PROBLEM_MESSAGE) + "#";
-        String pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.DEPUPD_PAGE_PATH);
+
+            if (responseMessages.equals("")) {
+
+                actor.updateEntryColoumnWhereId(nd, "title", Long.valueOf(req.getParameter("deppid")), nd.title);
+                }
+            }
+        String pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.MAIN_PAGE_PATH);
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pagePath);
         try {
             dispatcher.forward(req, resp);
@@ -60,36 +59,39 @@ public class DepartmentGetPostServlet extends HttpServlet {
     }
 
 
+    // saving new Department
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         responseMessages = "";
-
+        responseMessages += MessageManager.getInstance().getProperty(MessageManager.EMPTY_FIELD_MESSAGE) + "#";
         String newDepTitle = req.getParameter("newdepptitle");
-        DepartmentEntityImpl nd = new DepartmentEntityImpl(newDepTitle);
 
-        if (validator.isExist(nd, "title", nd.title)) {
-            responseMessages += MessageManager.getInstance().getProperty(MessageManager.DEPTITLE_SAVE_PROBLEM_MESSAGE) + "#";
-            depTitleInputValue = nd.title;
-        }
+        if (!newDepTitle.equals("")) {
 
-        if (responseMessages.equals("")) {
+            responseMessages = "";
+            DepartmentEntityImpl nd = new DepartmentEntityImpl(newDepTitle);
+
+            if (validator.isExist(nd, "title", nd.title)) {
+                responseMessages += MessageManager.getInstance().getProperty(MessageManager.DEPTITLE_SAVE_PROBLEM_MESSAGE) + "#";
+                depTitleInputValue = nd.title;
+            }
+
+            if (responseMessages.equals("")) {
 
                 actor.saveEntry(nd);
                 responseMessages = "New Department record is saved.";
                 depTitleInputValue = "";
             }
-
-            String pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.MAIN_PAGE_PATH);
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pagePath);
-            try {
-                dispatcher.forward(req, resp);
-            } catch (ServletException e) {
-                e.printStackTrace();
-                errorRedirect(req);
-            }
-
         }
-
+        String pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.MAIN_PAGE_PATH);
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pagePath);
+        try {
+            dispatcher.forward(req, resp);
+        } catch (ServletException e) {
+            e.printStackTrace();
+            errorRedirect(req);
+        }
     }
+}
 

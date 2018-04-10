@@ -18,6 +18,7 @@ public class MessageManager {
    public static final String LOGIN_PASSWORD_PROBLEM_MESSAGE = "LOGIN_PASSWORD_PROBLEM_MESSAGE";
    public static final String DEPUPD_PROBLEM_MESSAGE = "DEPUPD_PROBLEM_MESSAGE";
    public static final String DEPTITLE_SAVE_PROBLEM_MESSAGE = "DEPTITLE_SAVE_PROBLEM_MESSAGE";
+   public static final String EMPTY_FIELD_MESSAGE = "EMPTY_FIELD_MESSAGE";
 
     public static String errorRedirect(HttpServletRequest request){
 

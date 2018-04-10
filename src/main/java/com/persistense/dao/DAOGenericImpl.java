@@ -62,7 +62,7 @@ public class DAOGenericImpl<T> implements DAO<T> {
 
             ps.setLong(1, id);
 
-            ps.executeQuery();
+            ps.executeUpdate();
             connection.close();
             return true;
 
