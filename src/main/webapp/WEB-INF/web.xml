@@ -79,4 +79,13 @@
     <servlet-name>justServlet</servlet-name>
     <url-pattern>/just</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>quitServlet</servlet-name>
+    <servlet-class>com.controller.QuitServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>quitServlet</servlet-name>
+    <url-pattern>/quit</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -1,4 +1,4 @@
 package com.controller;
 
-public class Class {
+public class Clazz {
 }

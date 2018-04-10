@@ -37,12 +37,12 @@ public class DepartmentRegister {
             ResultSet rs = ps.getResultSet();
             while (rs.next()) {
                 DepartmentEntityImpl dp = new DepartmentEntityImpl(rs.getString("title"));
-                dp.id = rs.getLong("id");
+                dp.setId(rs.getLong("id"));
 
-                ps = actor.selectAllWhere(new EmployeeEntityImpl(), "department_id_long", dp.id);
+                ps = actor.selectAllWhere(new EmployeeEntityImpl(), "department_id_long", dp.getId());
 
                 ResultSet rrs = ps.getResultSet();
-                while (rrs.next()) ++dp.empQuant;
+                while (rrs.next()) dp.setEmpQuant(dp.getEmpQuant() + 1);
 
                 deppList.add(dp);
             }

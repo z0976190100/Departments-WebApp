@@ -9,10 +9,10 @@ public class DepartmentEntityImpl implements IEntity {
     final  String TABLE_NAME = "department1.department";
     final  String UNIQUE_TITLE = "title";
 
-    public Map<String, String > coloumnValueMap = new HashMap<>();
-    public long id;
-    public String title; // as UniqueTitle
-    public int empQuant;
+    private Map<String, String > coloumnValueMap = new HashMap<>();
+    private long id;
+    private String title; // as UniqueTitle
+    private int empQuant;
 
 
 

@@ -1,4 +1,7 @@
-package com.service.utils;
+package com.service;
+
+import com.service.Command;
+import com.service.utils.ConfigurationManager;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;

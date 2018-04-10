@@ -9,6 +9,8 @@
 
 <h2>login to start</h2>
 
+${cookie.user.value};
+
 <hr/>
 
 <form name="login-form" method="POST" action="/main">
@@ -25,6 +27,6 @@
 <h3><%=mess%></h3>
 <% } %>
 <% responseMessages = ""; %>
-
+<a href="justpage.jsp">justpage</a>
 </body>
 </html>

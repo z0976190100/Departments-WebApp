@@ -38,14 +38,14 @@ public class DepartmentGetPostServlet extends HttpServlet {
 
             DepartmentEntityImpl nd = new DepartmentEntityImpl(newDepTitle);
 
-            if (validator.isExist(nd, "title", nd.title)) {
+            if (validator.isExist(nd, "title", nd.getTitle())) {
                 responseMessages += MessageManager.getInstance().getProperty(MessageManager.DEPTITLE_SAVE_PROBLEM_MESSAGE) + "#";
-                depTitleInputValue = nd.title;
+                depTitleInputValue = nd.getTitle();
             }
 
             if (responseMessages.equals("")) {
 
-                actor.updateEntryColoumnWhereId(nd, "title", Long.valueOf(req.getParameter("deppid")), nd.title);
+                actor.updateEntryColoumnWhereId(nd, "title", Long.valueOf(req.getParameter("deppid")), nd.getTitle());
                 }
             }
         String pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.MAIN_PAGE_PATH);
@@ -72,9 +72,9 @@ public class DepartmentGetPostServlet extends HttpServlet {
             responseMessages = "";
             DepartmentEntityImpl nd = new DepartmentEntityImpl(newDepTitle);
 
-            if (validator.isExist(nd, "title", nd.title)) {
+            if (validator.isExist(nd, "title", nd.getTitle())) {
                 responseMessages += MessageManager.getInstance().getProperty(MessageManager.DEPTITLE_SAVE_PROBLEM_MESSAGE) + "#";
-                depTitleInputValue = nd.title;
+                depTitleInputValue = nd.getTitle();
             }
 
             if (responseMessages.equals("")) {

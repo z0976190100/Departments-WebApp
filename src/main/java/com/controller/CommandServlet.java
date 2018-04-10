@@ -1,6 +1,6 @@
 package com.controller;
 
-import com.service.utils.Command;
+import com.service.Command;
 import com.service.utils.ConfigurationManager;
 import com.service.utils.MessageManager;
 import com.service.utils.RequestRouter;

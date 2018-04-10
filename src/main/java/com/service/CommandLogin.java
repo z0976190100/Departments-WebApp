@@ -2,7 +2,6 @@ package com.service;
 
 import com.persistense.dao.DAOGenericImpl;
 import com.persistense.entity.EmployeeEntityImpl;
-import com.service.utils.Command;
 import com.service.utils.ConfigurationManager;
 import com.service.utils.MessageManager;
 
