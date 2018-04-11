@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Set;
 
 import static com.service.utils.MessageManager.errorRedirect;
 import static com.service.utils.MessageManager.responseMessages;
@@ -34,22 +35,23 @@ public class EmployeeGetPostServlet extends HttpServlet {
                 req.getParameter("emppass")
         );
 
-        if (validator.isExist(emp, "login", emp.login)) {
+        if (validator.isExist(emp, "login", emp.getLogin())) {
             responseMessages += MessageManager.getInstance().getProperty(MessageManager.LOGIN_SAVE_PROBLEM_MESSAGE) + "#";
         }
-        if (validator.isExist(emp, "pass", emp.pass)) {
+        if (validator.isExist(emp, "pass", emp.getPass())) {
             responseMessages += MessageManager.getInstance().getProperty(MessageManager.PASSWORD_SAVE_PROBLEM_MESSAGE) + "#";
         }
 
-        if (responseMessages == "") {
+        if (responseMessages.equals("")) {
 
+            Set<String> ks = emp.getColoumnValueMap().keySet();
 
-            for (String col : emp.coloumnValueMap.keySet()) {
+            for (String col : ks) {
                 if (!col.contains("_long")) {
                     actor.updateEntryColoumnWhereId(emp,
                             col,
                             Long.valueOf(req.getParameter("empid")),
-                            emp.coloumnValueMap.get(col));
+                            (String)emp.getColoumnValueMap().get(col));
                 }
             }
             responseMessages = "Successfully updated";
@@ -82,14 +84,14 @@ public class EmployeeGetPostServlet extends HttpServlet {
                 req.getParameter("emplogin"),
                 req.getParameter("emppass"));
 
-        if (validator.isExist(newE, "login", newE.login)) {
+        if (validator.isExist(newE, "login", newE.getLogin())) {
             responseMessages += MessageManager.getInstance().getProperty(MessageManager.LOGIN_SAVE_PROBLEM_MESSAGE) + "#";
         }
-        if (validator.isExist(newE, "pass", newE.pass)) {
+        if (validator.isExist(newE, "pass", newE.getPass())) {
             responseMessages += MessageManager.getInstance().getProperty(MessageManager.PASSWORD_SAVE_PROBLEM_MESSAGE) + "#";
         }
 
-        if (responseMessages == "") {
+        if (responseMessages.equals("")) {
             actor.saveEntry(newE);
             responseMessages = "New Employee record is saved.";
         }

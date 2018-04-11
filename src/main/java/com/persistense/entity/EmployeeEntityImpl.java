@@ -10,14 +10,14 @@ public class EmployeeEntityImpl implements IEntity {
     final String UNIQUE_TITLE = "login";
 
 
-    public long id;
-    public String firstName;
-    public String lastName;
-    public long department;
-    public String birthDate;
-    public String login;
-    public String pass;
-    public Map<String, String> coloumnValueMap = new HashMap<>();
+    private long id;
+    private String firstName;
+    private String lastName;
+    private long department;
+    private String birthDate;
+    private String login;
+    private String pass;
+    private Map<String, String> coloumnValueMap = new HashMap<>();
 
     public EmployeeEntityImpl() {
     }

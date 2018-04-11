@@ -28,7 +28,7 @@
     <input type="submit" value="Upd"/>
 </form>
 
-<form action="/deppage.jsp" method="get">
+<form action="/department_page.jsp" method="get">
     <input name="deppid" type="hidden" value="<%=request.getParameter("deppid")%>" >
     <input name="depptitle" type="hidden" value="<%=request.getParameter("depptitle")%>" >
     <input name="command" type="hidden" value="depplist">

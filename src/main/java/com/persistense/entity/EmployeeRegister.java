@@ -8,18 +8,23 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmployeeRegister implements EntityRegister{
+public class EmployeeRegister {
 
 
-    public  List<EmployeeEntityImpl> emppList = new ArrayList<>();
+    public static List<EmployeeEntityImpl> emppList = new ArrayList<>();
 
-    @Override
+    public List<EmployeeEntityImpl> getEmppList() {
+        return emppList;
+    }
+
+
+
     public void listUpdate() {
 
     }
 
-    @Override
-    public void listUpdate(long id) {
+
+    public static void listUpdate(long id) {
         DAOGenericImpl actor = new DAOGenericImpl();
 
         PreparedStatement ps = actor.selectAllWhere(new EmployeeEntityImpl(), "department_id_long", id);

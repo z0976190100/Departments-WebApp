@@ -27,6 +27,6 @@ ${cookie.user.value};
 <h3><%=mess%></h3>
 <% } %>
 <% responseMessages = ""; %>
-<a href="justpage.jsp">justpage</a>
+<a href="employee_add_page.jsp">justpage</a>
 </body>
 </html>

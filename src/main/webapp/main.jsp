@@ -37,7 +37,7 @@
             <td><c:out value="${depp.title}"/></td>
             <td><c:out value="${depp.empQuant}"/></td>
             <td bgcolor="#99ff33">
-                <form action="/deppage.jsp" method="get">
+                <form action="/department_page.jsp" method="get">
                     <input name="deppid" type="hidden" value="${depp.id}"/>
                     <input name="depptitle" type="hidden" value="${depp.title}"/>
                     <input name="command" type="hidden" value="depplist"/>

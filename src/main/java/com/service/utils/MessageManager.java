@@ -19,6 +19,8 @@ public class MessageManager {
    public static final String DEPUPD_PROBLEM_MESSAGE = "DEPUPD_PROBLEM_MESSAGE";
    public static final String DEPTITLE_SAVE_PROBLEM_MESSAGE = "DEPTITLE_SAVE_PROBLEM_MESSAGE";
    public static final String EMPTY_FIELD_MESSAGE = "EMPTY_FIELD_MESSAGE";
+   public static final String INVALID_EMAIL_MESSAGE = "INVALID_EMAIL_MESSAGE";
+   public static final String FAILED_PASS_CONFIRMATION_MESSAGE = "FAILED_PASS_CONFIRMATION_MESSAGE";
 
     public static String errorRedirect(HttpServletRequest request){
 
