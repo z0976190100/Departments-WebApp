@@ -19,6 +19,7 @@
 <form action="/employee_add_page.jsp" method="post" style="font-family:'Roboto Slab'">
     <input name="command" type="hidden" value="empadd">
     <input name="deppid" type="hidden" value="${deppid}" />
+    <input name="depptitle" type="hidden" value="${depptitle}" />
     <%-- <input name="depptitle" type="hidden" value="${depptitle}"  />
      <input name="empfname" placeholder="first Name" value="">
      <input name="emplname" placeholder="last Name" value="">
@@ -65,7 +66,7 @@
         <td bgcolor="#cc3300">
             <form action="/employeedelete" method="post">
                 <input name="empid" type="hidden" value="${empp.id}" />
-                <input name="command" type="hidden" value="deppdelete" />
+                <input name="command" type="hidden" value="empdelete" />
                 <input name="deppid" type="hidden" value="${deppid}" />
                 <input name="depptitle" type="hidden" value="${depptitle}"  />
                 <input type="submit" value="Delete" />
