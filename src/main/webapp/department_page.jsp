@@ -12,6 +12,12 @@
 </head>
 <body style="font-family:'Roboto Slab'">
 
+<h3>welcome, ${applicationScope.username}</h3>
+
+<form action="/quit" method="post"><input type="submit" value="Quit"/></form>
+
+<hr/>
+
 <c:set var="depptitle" value="${param.depptitle}" scope="page" />
 <c:set var="deppid" value="${param.deppid}" scope="page" />
 <h1>DEPARTMENT of <c:out value="${depptitle}" /></h1>

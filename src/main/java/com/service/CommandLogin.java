@@ -5,6 +5,7 @@ import com.persistense.entity.EmployeeEntityImpl;
 import com.service.utils.ConfigurationManager;
 import com.service.utils.MessageManager;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -51,6 +52,7 @@ public class CommandLogin implements Command {
             if (rs.next()) {
                 if (rs.getString("pass").equals(pass)) {
                     Cookie cookie = new Cookie("user", rs.getString("first_name"));
+                   req.setAttribute("user", rs.getString("first_name"));
                     resp.addCookie(cookie);
                     return true;
                 }

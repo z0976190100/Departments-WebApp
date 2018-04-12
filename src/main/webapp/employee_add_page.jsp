@@ -17,17 +17,23 @@
 </head>
 <body style="font-family:'Roboto Slab'">
 
+<h3>welcome, ${applicationScope.username}</h3>
+
+<form action="/quit" method="post"><input type="submit" value="Quit"/></form>
+
+<hr/>
+
 <c:set var="depptitle" value="${param.depptitle}" scope="page"/>
 <c:set var="deppid" value="${param.deppid}" scope="page"/>
 
-<h1>DEPARTMENT of <c:out value="${depptitle}"/><c:out value="${deppid}"/></h1>
+<h1>DEPARTMENT of <c:out value="${depptitle}" /></h1>
 <h3>EMPLOYEE CHECK-IN</h3>
 <hr/>
 
-<form action="/employee" method=post>
+<form action="/employee" method="post">
 
     <input name="command" type="hidden" value="empadd">
-    <input name="empdep" type="hidden" value="${deppid}"/>
+    <input name="deppid" type="hidden" value="${deppid}"/>
     <input name="depptitle" type="hidden" value="${depptitle}"/>
 
     <table border=2 cellpadding=10>
@@ -38,24 +44,24 @@
             <td valign=top style="width:200px">
                 <b>First Name<sup>*</sup></b>
                 <br>
-                <input type="text" name="empfname" value="" size=15 maxlength=20></td>
+                <input type="text" name="empfname" value="${param.empfname}" size=15 maxlength=20></td>
             <td valign=top style="width:200px">
                 <b>Last Name<sup>*</sup></b>
                 <br>
-                <input type="text" name="emplname" value="" size=15 maxlength=20></td>
+                <input type="text" name="emplname" value="${param.emplname}" size=15 maxlength=20></td>
         </tr>
         <tr>
             <td valign=top colspan="2">
                 <b>Date of Birth<sup>*</sup></b>
                 <br>
-                <input type="text" name="birthDate" placeholder="DD.MM.YYYY" value="" size=25 maxlength=125>
+                <input type="text" name="birthDate" placeholder="DD.MM.YYYY" value="${param.birthDate}" size=25 maxlength=125>
                 <br></td>
         </tr>
         <tr>
             <td valign=top colspan="2">
                 <b>E-mail (as login)<sup>*</sup></b>
                 <br>
-                <input type="text" name="emplogin" placeholder="my@mail.dot.com" value="" size=25 maxlength=125>
+                <input type="text" name="emplogin" placeholder="my@mail.dot.com" value="${param.emplogin}" size=25 maxlength=125>
                 <br></td>
         </tr>
         <tr>
@@ -86,9 +92,11 @@
     <h3><c:out value="${mess}"/></h3>
 </c:forEach>
 
-<form action="/main.jsp" method="get">
+<form action="/department_page.jsp" method="get">
     <input name="command" type="hidden" value="depplist">
-    <input type="submit" value="<- Back to Main page"/>
+    <input name="deppid" type="hidden" value="${deppid}"/>
+    <input name="depptitle" type="hidden" value="${depptitle}"/>
+    <input type="submit" value="<- Back to Department page"/>
 
     <% responseMessages = ""; %>
 

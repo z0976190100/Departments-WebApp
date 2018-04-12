@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; utf-8" pageEncoding="utf-8" %>
 <%@ page import="static com.service.utils.MessageManager.responseMessages" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 <head>
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
@@ -8,8 +10,6 @@
 <body style="font-family:'Roboto Slab'">
 
 <h2>login to start</h2>
-
-${cookie.user.value};
 
 <hr/>
 
@@ -22,11 +22,11 @@ ${cookie.user.value};
     <input type="submit" value="Start">
 </form>
 
-<% String [] arr = responseMessages.split("#"); %>
-<% for(String mess : arr){ %>
-<h3><%=mess%></h3>
-<% } %>
+<c:forEach var="mess" items="${MessageManager.responseMessages.split(\"#\")}">
+    <h3><c:out value="${mess}"/></h3>
+</c:forEach>
+
 <% responseMessages = ""; %>
-<a href="employee_add_page.jsp">justpage</a>
+
 </body>
 </html>

@@ -16,6 +16,7 @@ public class ConfigurationManager {
     public static final String DEP_PAGE_PATH = "DEP_PAGE_PATH";
     public static final String DEPUPD_PAGE_PATH = "DEPUPD_PAGE_PATH";
     public static final String EMPUPD_PAGE_PATH = "EMPUPD_PAGE_PATH";
+    public static final String EMPLOYEE_ADD_PAGE_PATH = "EMPLOYEE_ADD_PAGE_PATH";
 
 
     private ConfigurationManager(){

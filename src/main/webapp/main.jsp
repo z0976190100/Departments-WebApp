@@ -12,7 +12,9 @@
 </head>
 <body style="font-family:'Roboto Slab'">
 
-<h3>welcome, ${cookie.user.value}</h3>
+<c:set var="username" value="${requestScope.user}" scope="application" />
+
+<h3>welcome, ${username}</h3>
 
 <form action="/quit" method="post"><input type="submit" value="Quit"/></form>
 
