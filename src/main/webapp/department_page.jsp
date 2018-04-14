@@ -26,11 +26,6 @@
     <input name="command" type="hidden" value="empadd">
     <input name="deppid" type="hidden" value="${deppid}" />
     <input name="depptitle" type="hidden" value="${depptitle}" />
-    <%-- <input name="depptitle" type="hidden" value="${depptitle}"  />
-     <input name="empfname" placeholder="first Name" value="">
-     <input name="emplname" placeholder="last Name" value="">
-     <input name="emplogin" placeholder="my@mail.dot.com" value="">
-     <input name="emppass" placeholder="password" value="">--%>
     <input type="submit" value="Add new Employee"/>
 </form>
 <br/>
@@ -53,7 +48,7 @@
         <td><c:out value="${empp.lastName}" /></td>
         <td><c:out value="${empp.login}" /></td>
         <td><c:out value="${empp.pass}" /></td>
-        <td></td>
+        <td><c:out value="${empp.birthDate}" /></td>
         <td bgcolor="#99ff33">
             <form action="/empupdate.jsp" method="post">
                 <input name="empid" type="hidden" value="${empp.id}" />

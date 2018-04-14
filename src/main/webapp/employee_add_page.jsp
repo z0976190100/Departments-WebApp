@@ -54,7 +54,7 @@
             <td valign=top colspan="2">
                 <b>Date of Birth<sup>*</sup></b>
                 <br>
-                <input type="text" name="birthDate" placeholder="DD.MM.YYYY" value="${param.birthDate}" size=25 maxlength=125>
+                <input type="date" name="birthDate"  value="${param.birthDate}" min="1918-01-01" max="2002-12-31">
                 <br></td>
         </tr>
         <tr>
@@ -62,7 +62,11 @@
                 <b>E-mail (as login)<sup>*</sup></b>
                 <br>
                 <input type="text" name="emplogin" placeholder="my@mail.dot.com" value="${param.emplogin}" size=25 maxlength=125>
-                <br></td>
+                <br>
+                <c:if test="${(requestScope.responseMessages.get(\"LOGIN_SAVE_PROBLEM_MESSAGE\") != null)}" >
+                    <p style="color:red"><c:out value="${requestScope.responseMessages.get(\"LOGIN_SAVE_PROBLEM_MESSAGE\")}"/></p>
+                </c:if>
+            </td>
         </tr>
         <tr>
             <td valign=top>

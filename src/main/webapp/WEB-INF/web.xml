@@ -88,4 +88,14 @@
     <servlet-name>quitServlet</servlet-name>
     <url-pattern>/quit</url-pattern>
   </servlet-mapping>
+
+  <filter>
+    <filter-name>parseFilter</filter-name>
+    <filter-class>com.controller.ParseFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>parseFilter</filter-name>
+    <url-pattern>/employee</url-pattern>
+  </filter-mapping>
 </web-app>

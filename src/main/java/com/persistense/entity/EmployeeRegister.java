@@ -38,9 +38,9 @@ public class EmployeeRegister {
                 EmployeeEntityImpl employee = new EmployeeEntityImpl(
                         rs.getString("first_name"),
                         rs.getString("last_name"),
+                        rs.getString("birth_date"),
                         rs.getLong("department_id_long"),
-                        rs.getString("login"),
-                        rs.getString("pass"));
+                        rs.getString("login"), rs.getString("pass"));
                 employee.setId(rs.getLong("id"));
                 emppList.add(employee);
             }
