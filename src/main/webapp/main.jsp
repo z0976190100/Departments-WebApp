@@ -1,7 +1,7 @@
-<%@ page import="com.persistense.entity.DepartmentRegister" %>
-<%@ page import="com.controller.DepartmentGetPostServlet" %>
-<%@ page import="static com.service.utils.MessageManager.responseMessages" %>
-<%@ page import="com.service.utils.MessageManager" %>
+<%@ page import="com.depart.project.persistense.entity.DepartmentRegister" %>
+<%@ page import="com.depart.project.controller.DepartmentGetPostServlet" %>
+<%@ page import="static com.depart.project.service.utils.MessageManager.responseMessages" %>
+<%@ page import="com.depart.project.service.utils.MessageManager" %>
 <%@ page language="java" contentType="text/html; utf-8" pageEncoding="utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -12,7 +12,9 @@
 </head>
 <body style="font-family:'Roboto Slab'">
 
-<c:set var="username" value="${requestScope.user}" scope="application" />
+<c:if test="${not empty requestScope.user}">
+    <c:set var="username" value="${requestScope.user}" scope="application"/>
+</c:if>
 
 <h3>welcome, ${username}</h3>
 
@@ -72,8 +74,9 @@
     <tr>
         <td>
             <form action="/department" method="post">
-                <input name="command" type="hidden" value="deppadd" />
-                <input name="newdepptitle" placeholder="New DEPARTMENT Title" value="${DepartmentGetPostServlet.depTitleInputValue}" /> <%----%>
+                <input name="command" type="hidden" value="deppadd"/>
+                <input name="newdepptitle" placeholder="New DEPARTMENT Title"
+                       value="${DepartmentGetPostServlet.depTitleInputValue}"/> <%----%>
                 <input type="submit" value="Add new Department"/>
             </form>
         </td>

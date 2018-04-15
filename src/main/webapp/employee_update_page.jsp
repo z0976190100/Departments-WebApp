@@ -5,8 +5,6 @@
   Time: 19:37
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page import="com.depart.project.service.utils.MessageManager" %>
-<%@ page import="static com.depart.project.service.utils.MessageManager.responseMessages" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -29,11 +27,12 @@
 <h1>DEPARTMENT of <c:out value="${depptitle}" /></h1>
 <hr/>
 
-<form action="/employee" method="post">
+<form action="/employee-update" method="post">
 
     <input name="command" type="hidden" value="empadd">
     <input name="deppid" type="hidden" value="${deppid}"/>
     <input name="depptitle" type="hidden" value="${depptitle}"/>
+    <input name="empid" type="hidden" value="${param.empid}" />
 
     <table border=2 cellpadding=10>
         <th bgcolor="#999966" colspan=2>
@@ -44,7 +43,7 @@
                     </p>
                 </c:when>
                 <c:otherwise>
-                    <p><sup>*</sup>EMPLOYEE CHECK-IN</p>
+                    <p><sup>*</sup>EMPLOYEE EDIT</p>
                 </c:otherwise>
             </c:choose>
         </th>
@@ -58,7 +57,7 @@
                        pattern="[A-Za-z]+"
                        title="First Name can contain letters only!"
                        size=15 maxlength=20
-                required />
+                       required />
             </td>
             <td valign=top style="width:200px">
                 <b>Last Name<sup>*</sup></b>
@@ -92,7 +91,7 @@
                        placeholder="my@mail.dot.com"
                        value="${param.emplogin}"
                        size=25 maxlength=125
-                required />
+                       required />
                 <br>
                 <c:if test="${(requestScope.responseMessages.get(\"LOGIN_SAVE_PROBLEM_MESSAGE\") != null)}" >
                     <p style="color:red"><c:out value="${requestScope.responseMessages.get(\"LOGIN_SAVE_PROBLEM_MESSAGE\")}"/></p>
@@ -139,11 +138,7 @@
 </form>
 <hr/>
 
-<%--
-<c:forEach var="mess" items="${MessageManager.responseMessages.split(\"#\")}">
-    <h3><c:out value="${mess}"/></h3>
-</c:forEach>
---%>
+
 
 <form action="/department_page.jsp" method="get">
     <input name="command" type="hidden" value="depplist">
@@ -151,7 +146,6 @@
     <input name="depptitle" type="hidden" value="${depptitle}"/>
     <input type="submit" value="<- Back to Department page"/>
 
-   <%-- <% responseMessages = ""; %>--%>
 
 </form>
 </body>

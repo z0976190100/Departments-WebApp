@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; utf-8" pageEncoding="utf-8" %>
-<%@ page import="static com.service.utils.MessageManager.responseMessages" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
@@ -16,17 +15,16 @@
 <form name="login-form" method="POST" action="/main">
     <input type="hidden" name="command" value="login"/>
     Login:<br/>
-    <input type="text" name="login" value=""><br/>
+    <input type="email" name="login" placeholder="my@email.dot.com" value="" required /><br/>
     Password:<br/>
-    <input type="password" name="pass" value=""><br/>
+    <input type="password" name="pass" value="" required /><br/>
     <input type="submit" value="Start">
 </form>
 
-<c:forEach var="mess" items="${MessageManager.responseMessages.split(\"#\")}">
-    <h3><c:out value="${mess}"/></h3>
-</c:forEach>
+<c:if test="${(requestScope.responseMessages.get(\"LOGIN_PASSWORD_PROBLEM_MESSAGE\") != null)}" >
+    <p style="color:red"><c:out value="${requestScope.responseMessages.get(\"LOGIN_PASSWORD_PROBLEM_MESSAGE\")}"/></p>
+</c:if>
 
-<% responseMessages = ""; %>
 
 </body>
 </html>

@@ -19,7 +19,7 @@
 
   <servlet>
     <servlet-name>loginController</servlet-name>
-    <servlet-class>com.controller.CommandServlet</servlet-class>
+    <servlet-class>com.depart.project.controller.CommandServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>loginController</servlet-name>
@@ -28,7 +28,7 @@
 
   <servlet>
     <servlet-name>departmentController</servlet-name>
-    <servlet-class>com.controller.DepartmentGetPostServlet</servlet-class>
+    <servlet-class>com.depart.project.controller.DepartmentGetPostServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>departmentController</servlet-name>
@@ -37,7 +37,7 @@
 
   <servlet>
     <servlet-name>departmentDeleteController</servlet-name>
-    <servlet-class>com.controller.DepartmentDeleteServlet</servlet-class>
+    <servlet-class>com.depart.project.controller.DepartmentDeleteServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>departmentDeleteController</servlet-name>
@@ -46,7 +46,7 @@
 
   <servlet>
     <servlet-name>employeeController</servlet-name>
-    <servlet-class>com.controller.EmployeeGetPostServlet</servlet-class>
+    <servlet-class>com.depart.project.controller.EmployeeGetPostServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>employeeController</servlet-name>
@@ -54,8 +54,17 @@
   </servlet-mapping>
 
   <servlet>
+    <servlet-name>employeeUpdateController</servlet-name>
+    <servlet-class>com.depart.project.controller.EmployeeUpdateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>employeeUpdateController</servlet-name>
+    <url-pattern>/employee-update</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
     <servlet-name>employeeDeleteController</servlet-name>
-    <servlet-class>com.controller.EmployeeDeleteServlet</servlet-class>
+    <servlet-class>com.depart.project.controller.EmployeeDeleteServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>employeeDeleteController</servlet-name>
@@ -64,7 +73,7 @@
 
   <servlet>
     <servlet-name>departmentUpdateController</servlet-name>
-    <servlet-class>com.controller.DepartmentGetPostServlet</servlet-class>
+    <servlet-class>com.depart.project.controller.DepartmentGetPostServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>departmentUpdateController</servlet-name>
@@ -73,7 +82,7 @@
 
   <servlet>
     <servlet-name>justServlet</servlet-name>
-    <servlet-class>com.controller.JustServlet</servlet-class>
+    <servlet-class>com.depart.project.controller.JustServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>justServlet</servlet-name>
@@ -82,7 +91,7 @@
 
   <servlet>
     <servlet-name>quitServlet</servlet-name>
-    <servlet-class>com.controller.QuitServlet</servlet-class>
+    <servlet-class>com.depart.project.controller.QuitServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>quitServlet</servlet-name>
@@ -91,11 +100,11 @@
 
   <filter>
     <filter-name>parseFilter</filter-name>
-    <filter-class>com.controller.ParseFilter</filter-class>
+    <filter-class>com.depart.project.controller.ParseFilter</filter-class>
   </filter>
 
   <filter-mapping>
     <filter-name>parseFilter</filter-name>
-    <url-pattern>/employee</url-pattern>
+    <url-pattern>/parseFilter</url-pattern>
   </filter-mapping>
 </web-app>
