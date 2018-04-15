@@ -13,10 +13,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static com.depart.project.service.utils.MessageManager.errorRedirect;
+// TODO: responsemessages -> responseMessagesMap
+
 import static com.depart.project.service.utils.MessageManager.responseMessages;
 
-public class DepartmentGetPostServlet extends HttpServlet {
+public class DepartmentGetPostServlet_ extends HttpServlet {
 
     public static String depTitleInputValue = "";
     DAOGenericImpl actor = new DAOGenericImpl();
@@ -54,7 +55,7 @@ public class DepartmentGetPostServlet extends HttpServlet {
             dispatcher.forward(req, resp);
         } catch (ServletException e) {
             e.printStackTrace();
-            errorRedirect(req);
+           // errorRedirect(req);
         }
     }
 
@@ -90,7 +91,7 @@ public class DepartmentGetPostServlet extends HttpServlet {
             dispatcher.forward(req, resp);
         } catch (ServletException e) {
             e.printStackTrace();
-            errorRedirect(req);
+           // errorRedirect(req);
         }
     }
 }

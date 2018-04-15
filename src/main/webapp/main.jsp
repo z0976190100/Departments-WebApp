@@ -1,5 +1,5 @@
 <%@ page import="com.depart.project.persistense.entity.DepartmentRegister" %>
-<%@ page import="com.depart.project.controller.DepartmentGetPostServlet" %>
+<%@ page import="com.depart.project.controller.DepartmentGetPostServlet_" %>
 <%@ page import="static com.depart.project.service.utils.MessageManager.responseMessages" %>
 <%@ page import="com.depart.project.service.utils.MessageManager" %>
 <%@ page language="java" contentType="text/html; utf-8" pageEncoding="utf-8" %>

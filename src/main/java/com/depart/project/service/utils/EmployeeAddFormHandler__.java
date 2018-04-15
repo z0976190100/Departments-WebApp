@@ -2,7 +2,7 @@ package com.depart.project.service.utils;
 
 import java.util.HashMap;
 
-public class EmployeeAddFormHandler {
+public class EmployeeAddFormHandler__ {
 
     private String firstName;
     private String lastName;
@@ -13,7 +13,7 @@ public class EmployeeAddFormHandler {
     private HashMap<String, String > errors;
     private Validator validator = new Validator();
 
-    public EmployeeAddFormHandler() {
+    public EmployeeAddFormHandler__() {
         this.firstName="";
         this.lastName="";
         this.login ="";

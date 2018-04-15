@@ -12,14 +12,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class CommandServlet extends HttpServlet {
+// TODO servlet error redirect
 
+public class CommandServlet_ extends HttpServlet {
 
 /*static {createTable("department");}*/
 
     RequestRouter requestHelper = RequestRouter.getInstance();
 
-    public CommandServlet(){
+    public CommandServlet_(){
         super();
     }
 

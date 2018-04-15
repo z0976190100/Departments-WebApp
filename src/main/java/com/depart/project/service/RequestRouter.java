@@ -16,7 +16,7 @@ public class RequestRouter {
     private HashMap<String, Command> commands = new HashMap<String, Command>();
 
     private RequestRouter() {
-        commands.put("login", new CommandLogin());
+        commands.put("login", new CommandLogin_());
     }
 
     public Command getCommand(HttpServletRequest req, HttpServletResponse resp) {

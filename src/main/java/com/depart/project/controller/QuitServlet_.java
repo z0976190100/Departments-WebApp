@@ -1,21 +1,16 @@
 package com.depart.project.controller;
 
-import com.depart.project.persistense.dao.DAOGenericImpl;
-import com.depart.project.persistense.entity.DepartmentEntityImpl;
-import com.depart.project.persistense.entity.EmployeeEntityImpl;
 import com.depart.project.service.utils.ConfigurationManager;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static com.depart.project.service.utils.MessageManager.errorRedirect;
-
-public class DepartmentDeleteServlet extends HttpServlet{
-
+public class QuitServlet_ extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -25,20 +20,16 @@ public class DepartmentDeleteServlet extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        DAOGenericImpl actor = new DAOGenericImpl();
+        Cookie cookie = new Cookie("user", "");
+        resp.addCookie(cookie);
 
-        String str  = req.getParameter("deppid");
-        long idd = (long) Long.valueOf(str);
-        actor.deleteEntry(new DepartmentEntityImpl(), idd);
-        actor.deleteAllEntriesWhere(new EmployeeEntityImpl(), "department_id_long", idd);
-        String pagePath =  ConfigurationManager.getInstance().getProperty(ConfigurationManager.MAIN_PAGE_PATH);
+        String pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.LOGIN_PAGE_PATH);
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pagePath);
         try {
             dispatcher.forward(req, resp);
         } catch (ServletException e) {
             e.printStackTrace();
-            errorRedirect(req);
+            // TODO errorRedirect(req);
         }
     }
-
 }

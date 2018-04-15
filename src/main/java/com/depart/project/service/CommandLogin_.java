@@ -16,7 +16,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CommandLogin implements Command {
+public class CommandLogin_ implements Command {
 
     private static final String PARAM_NAME_LOGIN = "login";
     private static final String PARAM_NAME_PASS = "pass";
@@ -28,6 +28,8 @@ public class CommandLogin implements Command {
 
         String login = req.getParameter(PARAM_NAME_LOGIN);
         String pass = req.getParameter(PARAM_NAME_PASS);
+
+        // TODO use Validator.class
 
         if (checkLogin(login, pass, req, resp)) {
             req.setAttribute("login", "true");
