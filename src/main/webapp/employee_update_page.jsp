@@ -77,7 +77,7 @@
                 <br>
                 <input type="date"
                        name="birthDate"
-                       value="${param.birthDate}"
+                       value="${param.empBirthDate}"
                        min="1918-01-01" max="2002-12-31"
                        required />
                 <br></td>
@@ -107,6 +107,7 @@
                 <br>
                 <input type="password"
                        name="emppass"
+                       value="${param.emppass}"
                        size=10
                        maxlength=10
                        required />
@@ -116,6 +117,7 @@
                 <br>
                 <input type="password"
                        name="emppass2"
+                       value="${param.emppass}"
                        size=10
                        maxlength=10
                        required />
@@ -140,7 +142,7 @@
 
 
 
-<form action="/department_page.jsp" method="get">
+<form action="/employeeslist" method="post">
     <input name="command" type="hidden" value="depplist">
     <input name="deppid" type="hidden" value="${deppid}"/>
     <input name="depptitle" type="hidden" value="${depptitle}"/>

@@ -145,7 +145,7 @@
 </c:forEach>
 --%>
 
-<form action="/department_page.jsp" method="get">
+<form action="/employeeslist" method="post">
     <input name="command" type="hidden" value="depplist">
     <input name="deppid" type="hidden" value="${deppid}"/>
     <input name="depptitle" type="hidden" value="${depptitle}"/>

@@ -7,6 +7,7 @@
           xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
           version="3.0">
 
+  <!--TODO FIND GOOD EXAMLPE -->
 
   <display-name>FUUUUCK</display-name>
 
@@ -23,7 +24,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>loginController</servlet-name>
-    <url-pattern>/main</url-pattern>
+    <url-pattern>/tologin</url-pattern>
   </servlet-mapping>
 
   <servlet>
@@ -72,12 +73,30 @@
   </servlet-mapping>
 
   <servlet>
+    <servlet-name>employeeListController</servlet-name>
+    <servlet-class>com.depart.project.controller.EmployeesListBuilderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>employeeListController</servlet-name>
+    <url-pattern>/employeeslist</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
     <servlet-name>departmentUpdateController</servlet-name>
     <servlet-class>com.depart.project.controller.DepartmentGetPostServlet_</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>departmentUpdateController</servlet-name>
     <url-pattern>/depupd</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>departmentListController</servlet-name>
+    <servlet-class>com.depart.project.controller.DepartmentListBuilderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>departmentListController</servlet-name>
+    <url-pattern>/departmentlist</url-pattern>
   </servlet-mapping>
 
   <servlet>
@@ -107,4 +126,5 @@
     <filter-name>parseFilter</filter-name>
     <url-pattern>/parseFilter</url-pattern>
   </filter-mapping>
+
 </web-app>

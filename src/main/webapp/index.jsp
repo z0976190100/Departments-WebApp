@@ -12,7 +12,7 @@
 
 <hr/>
 
-<form name="login-form" method="POST" action="/main">
+<form name="login-form" method="POST" action="/tologin">
     <input type="hidden" name="command" value="login"/>
     Login:<br/>
     <input type="email" name="login" placeholder="my@email.dot.com" value="" required /><br/>

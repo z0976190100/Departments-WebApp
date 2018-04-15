@@ -33,7 +33,7 @@ public class CommandLogin_ implements Command {
 
         if (checkLogin(login, pass, req, resp)) {
             req.setAttribute("login", "true");
-            pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.MAIN_PAGE_PATH);
+            pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.DEPARTMENT_LISTBUILDER_SERVLET_PATH);
         } else {
             respMess.put("LOGIN_PASSWORD_PROBLEM_MESSAGE", MessageManager.getInstance().getProperty(MessageManager.LOGIN_PASSWORD_PROBLEM_MESSAGE));
             req.setAttribute("responseMessages", respMess);

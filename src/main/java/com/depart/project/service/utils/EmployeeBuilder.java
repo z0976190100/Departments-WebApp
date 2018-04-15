@@ -15,8 +15,9 @@ public class EmployeeBuilder {
                 Long.valueOf(req.getParameter("deppid")),
                 req.getParameter("emplogin"),
                 req.getParameter("emppass"));
+// TODO check of request command
+        if(req.getParameter("command").equals("employeeUpdate")) newE.setId(Long.valueOf(req.getParameter("empid")));
 
-        newE.setId(Long.valueOf(req.getParameter("empid")));
         newE.setPass2(req.getParameter("emppass2"));
 
         return newE;

@@ -1,6 +1,4 @@
-<%@ page import="com.depart.project.persistense.entity.DepartmentRegister" %>
-<%@ page import="com.depart.project.controller.DepartmentGetPostServlet_" %>
-<%@ page import="static com.depart.project.service.utils.MessageManager.responseMessages" %>
+
 <%@ page import="com.depart.project.service.utils.MessageManager" %>
 <%@ page language="java" contentType="text/html; utf-8" pageEncoding="utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -15,6 +13,8 @@
 <c:if test="${not empty requestScope.user}">
     <c:set var="username" value="${requestScope.user}" scope="application"/>
 </c:if>
+
+<c:set var="deppList" value="${requestScope.departmentList}" />
 
 <h3>welcome, ${username}</h3>
 
@@ -33,15 +33,20 @@
         <th colspan="3">Actions</th>
     </tr>
 
-    <% DepartmentRegister.listUpdate(); %>
+            <c:if test="${empty deppList}">
+    <tr>
+        <td colspan="5">
+            <c:out value="No Departments yet... Bad..."/>
+        </td>
+    </tr>
+    </c:if>
 
-    <c:forEach var="depp" items="${DepartmentRegister.deppList}">
-
+    <c:forEach var="depp" items="${deppList}">
         <tr>
             <td><c:out value="${depp.title}"/></td>
             <td><c:out value="${depp.empQuant}"/></td>
             <td bgcolor="#99ff33">
-                <form action="/department_page.jsp" method="get">
+                <form action="/employeeslist" method="get">
                     <input name="deppid" type="hidden" value="${depp.id}"/>
                     <input name="depptitle" type="hidden" value="${depp.title}"/>
                     <input name="command" type="hidden" value="depplist"/>
@@ -82,8 +87,6 @@
         </td>
     </tr>
 </table>
-
-<% responseMessages = ""; %>
 
 </body>
 </html>
