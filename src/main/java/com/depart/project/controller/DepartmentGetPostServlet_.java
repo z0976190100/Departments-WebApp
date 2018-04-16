@@ -15,6 +15,7 @@ import java.io.IOException;
 
 // TODO: responsemessages -> responseMessagesMap
 
+import static com.depart.project.service.utils.MessageManager.errorRedirect;
 import static com.depart.project.service.utils.MessageManager.responseMessages;
 
 public class DepartmentGetPostServlet_ extends HttpServlet {
@@ -55,7 +56,7 @@ public class DepartmentGetPostServlet_ extends HttpServlet {
             dispatcher.forward(req, resp);
         } catch (ServletException e) {
             e.printStackTrace();
-           // errorRedirect(req);
+           errorRedirect(req, resp);
         }
     }
 
@@ -91,7 +92,7 @@ public class DepartmentGetPostServlet_ extends HttpServlet {
             dispatcher.forward(req, resp);
         } catch (ServletException e) {
             e.printStackTrace();
-           // errorRedirect(req);
+           errorRedirect(req, resp);
         }
     }
 }

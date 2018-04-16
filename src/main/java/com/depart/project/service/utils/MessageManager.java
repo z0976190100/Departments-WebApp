@@ -1,8 +1,10 @@
 package com.depart.project.service.utils;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.ResourceBundle;
 
 public class MessageManager implements MessageManagerConstants{
@@ -23,15 +25,16 @@ public class MessageManager implements MessageManagerConstants{
         return instance;
     }
 
-   /* public static String errorRedirect(HttpServletRequest request, HttpServletResponse resp) {
+   public static void errorRedirect(HttpServletRequest request, HttpServletResponse resp) {
 
         request.setAttribute("errorMessage", MessageManager.getInstance().getProperty(MessageManager.SERVLET_EXCEPTION_ERROR_MESSAGE));
         String pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.ERROR_PAGE_PATH);
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pagePath);
-        dispatcher.forward(req, resp);
-        return ConfigurationManager.getInstance().getProperty(ConfigurationManager.ERROR_PAGE_PATH);
-
-    }*/
+        try {
+            request.getRequestDispatcher(pagePath).forward(request, resp);
+        }catch (ServletException | IOException e){
+            e.printStackTrace();
+        }
+    }
 
 
     public String getProperty(String key) {

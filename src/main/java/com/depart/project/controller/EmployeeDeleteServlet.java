@@ -11,9 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-// TODO respMesMap.put("deleted successfully")
+import static com.depart.project.service.utils.MessageManager.errorRedirect;
 
-public class EmployeeDeleteServlet_ extends HttpServlet {
+
+public class EmployeeDeleteServlet extends HttpServlet {
 
 
     @Override
@@ -34,7 +35,7 @@ public class EmployeeDeleteServlet_ extends HttpServlet {
             dispatcher.forward(req, resp);
         } catch (ServletException e) {
             e.printStackTrace();
-            //errorRedirect(req);
+            errorRedirect(req, resp);
         }
     }
 }

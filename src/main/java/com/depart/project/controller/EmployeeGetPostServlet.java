@@ -16,11 +16,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.depart.project.service.utils.MessageManager.errorRedirect;
 
-// TODO servlrt error redirect
-
-public class EmployeeGetPostServlet_ extends HttpServlet {
-
+public class EmployeeGetPostServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -48,7 +46,7 @@ public class EmployeeGetPostServlet_ extends HttpServlet {
             dispatcher.forward(req, resp);
         } catch (ServletException e) {
             e.printStackTrace();
-            //errorRedirect(req, resp);
+            errorRedirect(req, resp);
         }
     }
 }

@@ -38,7 +38,7 @@
 
   <servlet>
     <servlet-name>departmentDeleteController</servlet-name>
-    <servlet-class>com.depart.project.controller.DepartmentDeleteServlet_</servlet-class>
+    <servlet-class>com.depart.project.controller.DepartmentDeleteServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>departmentDeleteController</servlet-name>
@@ -47,7 +47,7 @@
 
   <servlet>
     <servlet-name>employeeController</servlet-name>
-    <servlet-class>com.depart.project.controller.EmployeeGetPostServlet_</servlet-class>
+    <servlet-class>com.depart.project.controller.EmployeeGetPostServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>employeeController</servlet-name>
@@ -56,7 +56,7 @@
 
   <servlet>
     <servlet-name>employeeUpdateController</servlet-name>
-    <servlet-class>com.depart.project.controller.EmployeeUpdateServlet_</servlet-class>
+    <servlet-class>com.depart.project.controller.EmployeeUpdateServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>employeeUpdateController</servlet-name>
@@ -65,7 +65,7 @@
 
   <servlet>
     <servlet-name>employeeDeleteController</servlet-name>
-    <servlet-class>com.depart.project.controller.EmployeeDeleteServlet_</servlet-class>
+    <servlet-class>com.depart.project.controller.EmployeeDeleteServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>employeeDeleteController</servlet-name>
@@ -110,7 +110,7 @@
 
   <servlet>
     <servlet-name>quitServlet</servlet-name>
-    <servlet-class>com.depart.project.controller.QuitServlet_</servlet-class>
+    <servlet-class>com.depart.project.controller.QuitServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>quitServlet</servlet-name>

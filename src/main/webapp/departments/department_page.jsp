@@ -21,7 +21,7 @@
 
 <h1>DEPARTMENT of <c:out value="${depptitle}" /></h1>
 <h3>EMPLOYEES</h3>
-<form action="/employee_add_page.jsp" method="post" style="font-family:'Roboto Slab'">
+<form action="/employees/employee_add_page.jsp" method="post" style="font-family:'Roboto Slab'">
     <input name="command" type="hidden" value="empadd">
     <input name="deppid" type="hidden" value="${deppid}" />
     <input name="depptitle" type="hidden" value="${depptitle}" />
@@ -55,7 +55,8 @@
         <td><c:out value="${empp.pass}" /></td>
         <td><c:out value="${empp.birthDate}" /></td>
         <td bgcolor="#99ff33">
-            <form action="/employee_update_page.jsp" method="post">
+            <form action="/employees/employee_update_page.jsp" method="post">
+                <input name="command" type="hidden" value="employeeUpdate" />
                 <input name="empid" type="hidden" value="${empp.id}" />
                 <input name="empfname" type="hidden" value="${empp.firstName}" />
                 <input name="emplname" type="hidden" value="${empp.lastName}" />
@@ -64,15 +65,14 @@
                 <input name="empBirthDate" type="hidden" value="${empp.birthDate}" />
                 <input name="deppid" type="hidden" value="${deppid}" />
                 <input name="depptitle" type="hidden" value="${depptitle}" />
-                <input name="command" type="hidden" value="employeeUpdate" />
                 <input type="submit" value="Edit" />
             </form>
         </td>
 
         <td bgcolor="#cc3300">
             <form action="/employeedelete" method="post">
-                <input name="empid" type="hidden" value="${empp.id}" />
                 <input name="command" type="hidden" value="empdelete" />
+                <input name="empid" type="hidden" value="${empp.id}" />
                 <input name="deppid" type="hidden" value="${deppid}" />
                 <input name="depptitle" type="hidden" value="${depptitle}"  />
                 <input type="submit" value="Delete" />
@@ -81,7 +81,6 @@
     </tr>
 </c:forEach>
 </table>
-
 
 <hr/>
 

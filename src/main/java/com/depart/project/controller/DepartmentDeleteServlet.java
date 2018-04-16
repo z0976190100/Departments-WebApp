@@ -12,8 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static com.depart.project.service.utils.MessageManager.errorRedirect;
 
-public class DepartmentDeleteServlet_ extends HttpServlet{
+
+public class DepartmentDeleteServlet extends HttpServlet{
 
 
     @Override
@@ -36,7 +38,7 @@ public class DepartmentDeleteServlet_ extends HttpServlet{
             dispatcher.forward(req, resp);
         } catch (ServletException e) {
             e.printStackTrace();
-           // errorRedirect(req);
+           errorRedirect(req, resp);
         }
     }
 

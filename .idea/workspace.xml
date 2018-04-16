@@ -7,22 +7,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f88c434-ae46-4a0d-ba16-3b47753f170a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/depart/project/controller/DepartmentListBuilderServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/depart/project/controller/EmployeesListBuilderServlet.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/depart/project/persistense/entity/DepartmentRegister.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/depart/project/persistense/entity/EmployeeRegister.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/depart/project/persistense/entity/EntityRegister.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/depart/project/service/utils/EmployeeAddFormHandler__.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/empupdate.jsp" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/depart/project/controller/DepartmentDeleteServlet_.java" afterPath="$PROJECT_DIR$/src/main/java/com/depart/project/controller/DepartmentDeleteServlet.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/depart/project/controller/EmployeeDeleteServlet_.java" afterPath="$PROJECT_DIR$/src/main/java/com/depart/project/controller/EmployeeDeleteServlet.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/depart/project/controller/EmployeeGetPostServlet_.java" afterPath="$PROJECT_DIR$/src/main/java/com/depart/project/controller/EmployeeGetPostServlet.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/depart/project/controller/EmployeeUpdateServlet_.java" afterPath="$PROJECT_DIR$/src/main/java/com/depart/project/controller/EmployeeUpdateServlet.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/depart/project/controller/QuitServlet_.java" afterPath="$PROJECT_DIR$/src/main/java/com/depart/project/controller/QuitServlet.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/department_page.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/departments/department_page.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/employee_add_page.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/employees/employee_add_page.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/employee_update_page.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/employees/employee_update_page.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/depart/project/service/CommandLogin_.java" afterPath="$PROJECT_DIR$/src/main/java/com/depart/project/service/CommandLogin_.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/depart/project/service/utils/ConfigurationManagerConstants.java" afterPath="$PROJECT_DIR$/src/main/java/com/depart/project/service/utils/ConfigurationManagerConstants.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/depart/project/service/utils/EmployeeBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/com/depart/project/service/utils/EmployeeBuilder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/depart/project/controller/CommandServlet_.java" afterPath="$PROJECT_DIR$/src/main/java/com/depart/project/controller/CommandServlet_.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/depart/project/service/utils/MessageManager.java" afterPath="$PROJECT_DIR$/src/main/java/com/depart/project/service/utils/MessageManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/config.properties" afterPath="$PROJECT_DIR$/src/main/resources/config.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/department_page.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/department_page.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/employee_add_page.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/employee_add_page.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/employee_update_page.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/employee_update_page.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/depupdate.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/depupdate.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/error.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/error.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/main.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/main.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -86,41 +86,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="employee_add_page.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/employee_add_page.jsp">
+      <file leaf-file-name="CommandServlet_.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/controller/CommandServlet_.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="147" column="14" lean-forward="true" selection-start-line="147" selection-start-column="14" selection-end-line="147" selection-end-column="28" />
+            <state relative-caret-position="255">
+              <caret line="42" column="33" lean-forward="true" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="employee_update_page.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/employee_update_page.jsp">
+      <file leaf-file-name="EmployeeUpdateServlet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/controller/EmployeeUpdateServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="119" column="47" lean-forward="false" selection-start-line="119" selection-start-column="47" selection-end-line="119" selection-end-column="47" />
+            <state relative-caret-position="561">
+              <caret line="59" column="37" lean-forward="false" selection-start-line="59" selection-start-column="37" selection-end-line="59" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EmployeeGetPostServlet_.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/controller/EmployeeGetPostServlet_.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DepartmentGetPostServlet_.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DepartmentGetPostServlet_.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/controller/DepartmentGetPostServlet_.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-724">
-              <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+            <state relative-caret-position="1362">
+              <caret line="94" column="11" lean-forward="true" selection-start-line="94" selection-start-column="11" selection-end-line="94" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -128,54 +118,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/main.jsp">
+      <file leaf-file-name="QuitServlet.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/controller/QuitServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DAOGenericImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/persistense/dao/DAOGenericImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="187" column="19" lean-forward="false" selection-start-line="187" selection-start-column="19" selection-end-line="187" selection-end-column="19" />
-              <folding>
-                <element signature="e#10859#10860#0" expanded="true" />
-                <element signature="e#10887#10888#0" expanded="true" />
-                <marker date="1523747901654" expanded="true" signature="1092:1162" ph="SELECT * FRO... missingValue" />
-                <marker date="1523747901654" expanded="true" signature="2253:2321" ph="DELETE FROM " />
-                <marker date="1523747901654" expanded="true" signature="3534:3548" ph="SELECT * FRO... missingValue" />
-                <marker date="1523747901654" expanded="true" signature="4654:4724" ph="SELECT * FRO... missingValue" />
-                <marker date="1523747901654" expanded="true" signature="5916:5973" ph="SELECT * FRO... missingValue" />
-                <marker date="1523747901654" expanded="true" signature="7216:7291" ph="INSERT INTO missingValue... " />
-                <marker date="1523747901654" expanded="true" signature="7718:7782" ph="UPDATE missi... " />
-                <marker date="1523747901654" expanded="true" signature="7982:8059" ph="UPDATE missi... " />
-                <marker date="1523747901654" expanded="true" signature="9191:9246" ph="DELETE FROM " />
-                <marker date="1523747901654" expanded="true" signature="10508:10578" ph="UPDATE missi... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="department_page.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/department_page.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="65" lean-forward="false" selection-start-line="0" selection-start-column="65" selection-end-line="0" selection-end-column="65" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="QuitServlet_.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/controller/QuitServlet_.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+            <state relative-caret-position="461">
+              <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -183,24 +130,52 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RequestRouter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/service/RequestRouter.java">
+      <file leaf-file-name="EmployeeGetPostServlet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/controller/EmployeeGetPostServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            <state relative-caret-position="-17">
+              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EmployeeBuilder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/service/utils/EmployeeBuilder.java">
+      <file leaf-file-name="DepartmentDeleteServlet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/controller/DepartmentDeleteServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="32" lean-forward="false" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="476">
+              <caret line="40" column="16" lean-forward="false" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DepartmentListBuilderServlet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/controller/DepartmentListBuilderServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="393">
+              <caret line="42" column="8" lean-forward="false" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EmployeeDeleteServlet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/controller/EmployeeDeleteServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="37" column="35" lean-forward="false" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="error.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/error.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="7" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="19" selection-end-column="7" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -211,8 +186,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Jsp File" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -232,12 +207,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/empupdate.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/service/utils/ConfigurationManager.java" />
-        <option value="$PROJECT_DIR$/departmentapp.iml" />
-        <option value="$PROJECT_DIR$/.idea/compiler.xml" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/7ca15389-fdd2-4519-b3ea-a79579ec3f48/console.sql" />
-        <option value="$PROJECT_DIR$/src/main/java/com/persistense/entity/EmployeeRegister.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/controller/ParseFilter.java" />
         <option value="$PROJECT_DIR$/src/main/resources/messages.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/controller/EmployeeGetPostServlet.java" />
@@ -254,19 +223,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/service/utils/EmployeeBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/depart/project/persistense/entity/EmployeeEntityImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/depart/project/service/utils/Validator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/depart/project/service/utils/MessageManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/depart/project/controller/DepartmentDeleteServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/depart/project/controller/DepartmentGetPostServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/depart/project/controller/DepartmentGetPostServlet_.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/depart/project/controller/CommandServlet_.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/depart/project/controller/EmployeeDeleteServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/depart/project/controller/EmployeeDeleteServlet_.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/depart/project/controller/EmployeeGetPostServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/depart/project/controller/EmployeeGetPostServlet_.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/depart/project/controller/EmployeeUpdateServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/depart/project/controller/EmployeeUpdateServlet_.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/depart/project/controller/QuitServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/depart/project/controller/QuitServlet_.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/depart/project/service/utils/ConfigurationManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/depart/project/service/utils/EmployeeAddFormHandler__.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/employees.jsp" />
@@ -274,15 +231,33 @@
         <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/depart/project/service/utils/ConfigurationManagerConstants.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/config.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/depart/project/controller/EmployeesListBuilderServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/depart/project/controller/DepartmentListBuilderServlet.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/employee_add_page.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/depart/project/service/utils/EmployeeBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/employee_update_page.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/main.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/department_page.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/depart/project/persistense/entity/EntityRegister.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/config.properties" />
+        <option value="$PROJECT_DIR$/src/main/webapp/main.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/depupdate.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/departments/department_page.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/depart/project/controller/CommandServlet_.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/depart/project/service/utils/MessageManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/depart/project/controller/DepartmentDeleteServlet_.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/employees/employee_add_page.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/error.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/are_you_sure_page.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/depart/project/controller/DepartmentGetPostServlet_.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/depart/project/controller/DepartmentDeleteServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/depart/project/controller/EmployeeDeleteServlet_.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/depart/project/controller/EmployeeDeleteServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/depart/project/controller/EmployeeGetPostServlet_.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/depart/project/controller/EmployeeGetPostServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/depart/project/controller/EmployeeUpdateServlet_.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/depart/project/controller/EmployeeUpdateServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/depart/project/controller/QuitServlet_.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/depart/project/controller/QuitServlet.java" />
       </list>
     </option>
   </component>
@@ -438,6 +413,22 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="departments" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="departmentapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="departmentapp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="employees" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="departmentapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="departmentapp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -469,6 +460,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\admin\OneDrive\codeacademy\IdeaProjects\departmentapp\src\main\webapp\employees" />
+      <recent name="C:\Users\admin\OneDrive\codeacademy\IdeaProjects\departmentapp\src\main\webapp\departments" />
       <recent name="C:\Users\admin\OneDrive\codeacademy\IdeaProjects\departmentapp\src\main\webapp" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -740,7 +733,7 @@
       <workItem from="1523571839033" duration="7428000" />
       <workItem from="1523658570511" duration="8111000" />
       <workItem from="1523723690866" duration="19992000" />
-      <workItem from="1523805656118" duration="12771000" />
+      <workItem from="1523805656118" duration="16046000" />
     </task>
     <task id="LOCAL-00001" summary="test commit idea">
       <created>1522269077413</created>
@@ -847,11 +840,18 @@
       <option name="project" value="LOCAL" />
       <updated>1523814703775</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="refactoring...">
+      <created>1523836158792</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1523836158793</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105434000" />
+    <option name="totallyTimeSpent" value="108709000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -955,7 +955,8 @@
     <MESSAGE value="employee_add_page.jsp works, notifications on fields required" />
     <MESSAGE value="employee_add_page.jsp notification on fields in progress" />
     <MESSAGE value="refactoring, todo added" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring, todo added" />
+    <MESSAGE value="refactoring..." />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -967,43 +968,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/time/LocalDate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="397" column="28" lean-forward="false" selection-start-line="397" selection-start-column="28" selection-end-line="397" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/7ca15389-fdd2-4519-b3ea-a79579ec3f48/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/HashMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="136" column="13" lean-forward="false" selection-start-line="136" selection-start-column="13" selection-end-line="136" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/empupdate.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="83" lean-forward="true" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/3294cbb3/7ca15389-fdd2-4519-b3ea-a79579ec3f48/Departments.department1.department">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://src:table:/3294cbb3/7ca15389-fdd2-4519-b3ea-a79579ec3f48/Departments.department1.employee">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -1083,24 +1047,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/service/utils/MessageManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="33" column="7" lean-forward="false" selection-start-line="25" selection-start-column="3" selection-end-line="33" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/controller/JustServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="84" column="0" lean-forward="true" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/controller/ParseFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1154,7 +1100,7 @@
         <state relative-caret-position="799">
           <caret line="59" column="30" lean-forward="false" selection-start-line="59" selection-start-column="30" selection-end-line="59" selection-end-column="30" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1175,44 +1121,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/controller/EmployeeDeleteServlet_.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/controller/DepartmentDeleteServlet_.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/controller/EmployeeUpdateServlet_.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/persistense/entity/DepartmentRegister.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="461">
           <caret line="57" column="5" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="57" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/controller/CommandServlet_.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-389">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1230,24 +1142,6 @@
         <state relative-caret-position="272">
           <caret line="16" column="11" lean-forward="false" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="45" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/config.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="49" lean-forward="false" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/controller/DepartmentListBuilderServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="42" column="8" lean-forward="false" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1272,7 +1166,7 @@
         <state relative-caret-position="149">
           <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1287,26 +1181,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/employee_add_page.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="147" column="14" lean-forward="true" selection-start-line="147" selection-start-column="14" selection-end-line="147" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/employee_update_page.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/employees/employee_update_page.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
           <caret line="119" column="47" lean-forward="false" selection-start-line="119" selection-start-column="47" selection-end-line="119" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/main.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1319,14 +1197,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/department_page.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="65" lean-forward="false" selection-start-line="0" selection-start-column="65" selection-end-line="0" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/persistense/entity/EntityRegister.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -1335,27 +1205,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/controller/QuitServlet_.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/main.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="442">
+          <caret line="50" column="74" lean-forward="false" selection-start-line="50" selection-start-column="74" selection-end-line="50" selection-end-column="74" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/service/RequestRouter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/depupdate.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        <state relative-caret-position="204">
+          <caret line="12" column="60" lean-forward="false" selection-start-line="12" selection-start-column="60" selection-end-line="12" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/departments/department_page.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1411">
+          <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/persistense/dao/DAOGenericImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
+        <state relative-caret-position="3043">
           <caret line="187" column="19" lean-forward="false" selection-start-line="187" selection-start-column="19" selection-end-line="187" selection-end-column="19" />
           <folding>
             <element signature="e#10859#10860#0" expanded="true" />
@@ -1374,18 +1250,142 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/controller/EmployeeGetPostServlet_.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="24" lean-forward="false" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/controller/JustServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-34">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/service/RequestRouter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/SecurityException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="33" column="13" lean-forward="false" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/service/Command.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+          <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/employees/employee_add_page.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="64" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/controller/CommandServlet_.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="42" column="33" lean-forward="true" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/service/utils/MessageManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="35" column="9" lean-forward="false" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/error.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="7" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="19" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/are_you_sure_page.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/controller/DepartmentDeleteServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="40" column="16" lean-forward="false" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/controller/DepartmentListBuilderServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="42" column="8" lean-forward="false" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/controller/EmployeeDeleteServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="37" column="35" lean-forward="false" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/controller/EmployeeGetPostServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-17">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/controller/EmployeeUpdateServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="59" column="37" lean-forward="false" selection-start-line="59" selection-start-column="37" selection-end-line="59" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/controller/DepartmentGetPostServlet_.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-724">
-          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        <state relative-caret-position="1362">
+          <caret line="94" column="11" lean-forward="true" selection-start-line="94" selection-start-column="11" selection-end-line="94" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/depart/project/controller/QuitServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="461">
+          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

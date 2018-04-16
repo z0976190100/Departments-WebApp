@@ -17,7 +17,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-public class EmployeeUpdateServlet_ extends HttpServlet {
+import static com.depart.project.service.utils.MessageManager.errorRedirect;
+
+public class EmployeeUpdateServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -55,7 +57,7 @@ public class EmployeeUpdateServlet_ extends HttpServlet {
             dispatcher.forward(req, resp);
         } catch (ServletException e) {
             e.printStackTrace();
-            // TODO errorRedirect
+            errorRedirect(req, resp);
 
         }
 

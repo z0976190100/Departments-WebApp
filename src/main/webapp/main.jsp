@@ -1,7 +1,8 @@
-
-<%@ page import="com.depart.project.service.utils.MessageManager" %>
 <%@ page language="java" contentType="text/html; utf-8" pageEncoding="utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%@ page import="com.depart.project.service.utils.MessageManager" %>
+<%@ page import="com.depart.project.controller.DepartmentGetPostServlet_" %>
 
 <html>
 <head>
@@ -47,24 +48,24 @@
             <td><c:out value="${depp.empQuant}"/></td>
             <td bgcolor="#99ff33">
                 <form action="/employeeslist" method="get">
+                    <input name="command" type="hidden" value="depplist"/>
                     <input name="deppid" type="hidden" value="${depp.id}"/>
                     <input name="depptitle" type="hidden" value="${depp.title}"/>
-                    <input name="command" type="hidden" value="depplist"/>
                     <input type="submit" value="Employees list"/>
                 </form>
             </td>
             <td bgcolor="#99ff33">
                 <form action="/depupdate.jsp" method="get">
-                    <input name="deppid" type="hidden" value="${depp.id}"/>
                     <input name="command" type="hidden" value="depupdate"/>
+                    <input name="deppid" type="hidden" value="${depp.id}"/>
                     <input name="depptitle" type="hidden" value="${depp.title}"/>
                     <input type="submit" value="Rename"/>
                 </form>
             </td>
             <td bgcolor="#cc3300">
                 <form action="/departmentdelete" method="post">
-                    <input name="deppid" type="hidden" value="${depp.id}"/>
                     <input name="command" type="hidden" value="deppdelete"/>
+                    <input name="deppid" type="hidden" value="${depp.id}"/>
                     <input type="submit" value="Delete"/>
                 </form>
             </td>
@@ -81,7 +82,7 @@
             <form action="/department" method="post">
                 <input name="command" type="hidden" value="deppadd"/>
                 <input name="newdepptitle" placeholder="New DEPARTMENT Title"
-                       value="${DepartmentGetPostServlet.depTitleInputValue}"/> <%----%>
+                       value="${DepartmentGetPostServlet_.depTitleInputValue}"/>
                 <input type="submit" value="Add new Department"/>
             </form>
         </td>

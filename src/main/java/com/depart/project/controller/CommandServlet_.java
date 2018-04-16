@@ -34,7 +34,7 @@ public class CommandServlet_ extends HttpServlet {
         processRequest(req, resp);
     }
 
-    private void processRequest(HttpServletRequest req, HttpServletResponse resp)throws SecurityException, IOException{
+    private void processRequest(HttpServletRequest req, HttpServletResponse resp){
 
         String pagePath = null;
 
@@ -57,7 +57,7 @@ public class CommandServlet_ extends HttpServlet {
         try {
 
             dispatcher.forward(req, resp);
-        } catch (ServletException e) {
+        } catch (ServletException | IOException e) {
             e.printStackTrace();
             req.setAttribute("errorMessage", MessageManager.getInstance().getProperty(
                     MessageManager.SERVLET_EXCEPTION_ERROR_MESSAGE));
