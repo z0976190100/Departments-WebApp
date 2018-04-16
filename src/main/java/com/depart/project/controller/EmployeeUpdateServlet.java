@@ -50,7 +50,7 @@ public class EmployeeUpdateServlet extends HttpServlet {
             responseMessagesMap.put("EMPLOYEE_RECORD_UPDATE_SUCCESS_MESSAGE", MessageManager.getInstance().getProperty(MessageManager.EMPLOYEE_RECORD_UPDATE_SUCCESS_MESSAGE));
         }
         req.setAttribute("responseMessages", responseMessagesMap);
-        String pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.EMPLOYEE_ADD_PAGE_PATH);
+        String pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.EMPLOYEE_UPD_PAGE_PATH);
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pagePath);
 
         try {

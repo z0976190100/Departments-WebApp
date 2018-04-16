@@ -53,6 +53,8 @@ public class Validator {
 
     public boolean employeeFormValidate(Map<String, String> respMess, EmployeeEntityImpl newE) {
 
+        // TODO for updating check if login and pass not changed, say "formValid=true", but if it changes, check if unique in DB
+
         boolean formValid = true;
 
         if (!isValidEmail(newE.getLogin())) {

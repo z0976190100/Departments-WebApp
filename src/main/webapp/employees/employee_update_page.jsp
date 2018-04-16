@@ -29,7 +29,7 @@
 
 <form action="/employee-update" method="post">
 
-    <input name="command" type="hidden" value="empadd">
+    <input name="command" type="hidden" value="employeeUpdate">
     <input name="deppid" type="hidden" value="${deppid}"/>
     <input name="depptitle" type="hidden" value="${depptitle}"/>
     <input name="empid" type="hidden" value="${param.empid}" />
@@ -37,9 +37,9 @@
     <table border=2 cellpadding=10>
         <th bgcolor="#999966" colspan=2>
             <c:choose>
-                <c:when test="${(requestScope.responseMessages.get(\"NEW_EMPLOYEE_SAVE_SUCCESS_MESSAGE\") != null)}">
+                <c:when test="${(requestScope.responseMessages.get(\"EMPLOYEE_RECORD_UPDATE_SUCCESS_MESSAGE\") != null)}">
                     <p style="color:green">
-                        <c:out value="${requestScope.responseMessages.get(\"NEW_EMPLOYEE_SAVE_SUCCESS_MESSAGE\")}"/>
+                        <c:out value="${requestScope.responseMessages.get(\"EMPLOYEE_RECORD_UPDATE_SUCCESS_MESSAGE\")}"/>
                     </p>
                 </c:when>
                 <c:otherwise>

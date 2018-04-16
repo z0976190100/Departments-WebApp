@@ -117,14 +117,5 @@
     <url-pattern>/quit</url-pattern>
   </servlet-mapping>
 
-  <filter>
-    <filter-name>parseFilter</filter-name>
-    <filter-class>com.depart.project.controller.ParseFilter</filter-class>
-  </filter>
-
-  <filter-mapping>
-    <filter-name>parseFilter</filter-name>
-    <url-pattern>/parseFilter</url-pattern>
-  </filter-mapping>
 
 </web-app>
