@@ -6,7 +6,7 @@ import java.util.Map;
 public class DepartmentEntityImpl implements IEntity {
 
 
-    final  String TABLE_NAME = "department1.department";
+    final  String TABLE_NAME = "department1.department2";
     final  String UNIQUE_TITLE = "title";
 
     private Map<String, String > coloumnValueMap = new HashMap<>();

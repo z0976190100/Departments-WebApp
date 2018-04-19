@@ -50,7 +50,7 @@ public class DepartmentGetPostServlet_ extends HttpServlet {
                 actor.updateEntryColoumnWhereId(nd, "title", Long.valueOf(req.getParameter("deppid")), nd.getTitle());
                 }
             }
-        String pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.MAIN_PAGE_PATH);
+        String pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.DEPARTMENT_LISTBUILDER_SERVLET_PATH);
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pagePath);
         try {
             dispatcher.forward(req, resp);
@@ -86,7 +86,7 @@ public class DepartmentGetPostServlet_ extends HttpServlet {
                 depTitleInputValue = "";
             }
         }
-        String pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.MAIN_PAGE_PATH);
+        String pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.DEPARTMENT_LISTBUILDER_SERVLET_PATH);
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pagePath);
         try {
             dispatcher.forward(req, resp);

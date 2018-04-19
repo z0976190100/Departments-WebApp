@@ -29,7 +29,7 @@ public class EmployeeDeleteServlet extends HttpServlet {
         String str = req.getParameter("empid");
         long idd = (long) Long.valueOf(str);
         actor.deleteEntry(new EmployeeEntityImpl(), idd);
-        String pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.DEP_PAGE_PATH);
+        String pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.EMPLOYEES_LISTBUILDER_SERVLET_PATH);
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pagePath);
         try {
             dispatcher.forward(req, resp);

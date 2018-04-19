@@ -7,18 +7,19 @@ CREATE TABLE department
     PRIMARY KEY
 );
 
-CREATE TABLE employee
+CREATE TABLE employee2
 (
   id                 SERIAL NOT NULL
-    CONSTRAINT employee_pkey
+    CONSTRAINT employee2_pkey
     PRIMARY KEY,
   first_name         TEXT,
   last_name          TEXT,
-  department_id_long BIGINT,
+  department_id_long BIGINT
+    CONSTRAINT employee2_department_id_long_fkey
+    REFERENCES department2,
   login              TEXT,
   pass               TEXT,
   birth_date         TEXT
 );
 
 
--- TODO: dep id -> foreign key

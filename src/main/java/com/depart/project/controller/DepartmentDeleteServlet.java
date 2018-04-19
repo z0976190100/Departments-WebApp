@@ -32,7 +32,7 @@ public class DepartmentDeleteServlet extends HttpServlet{
         long idd = (long) Long.valueOf(str);
         actor.deleteEntry(new DepartmentEntityImpl(), idd);
         actor.deleteAllEntriesWhere(new EmployeeEntityImpl(), "department_id_long", idd);
-        String pagePath =  ConfigurationManager.getInstance().getProperty(ConfigurationManager.MAIN_PAGE_PATH);
+        String pagePath =  ConfigurationManager.getInstance().getProperty(ConfigurationManager.DEPARTMENT_LISTBUILDER_SERVLET_PATH);
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pagePath);
         try {
             dispatcher.forward(req, resp);
