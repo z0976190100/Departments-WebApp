@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ page import="com.depart.project.service.utils.MessageManager" %>
-<%@ page import="com.depart.project.controller.DepartmentGetPostServlet_" %>
+<%@ page import="com.depart.project.controller.DepartmentGetPostServlet" %>
 
 <html>
 <head>
@@ -73,16 +73,25 @@
     </c:forEach>
 </table>
 <hr/>
-<c:forEach var="mess" items="${MessageManager.responseMessages.split(\"#\")}">
-    <h3><c:out value="${mess}"/></h3>
-</c:forEach>
+<c:if test="${(requestScope.responseMessages.get(\"EMPTY_FIELD_MESSAGE\") != null)}" >
+    <p style="color:red"><c:out value="${requestScope.responseMessages.get(\"EMPTY_FIELD_MESSAGE\")}"/></p>
+</c:if>
+<c:if test="${(requestScope.responseMessages.get(\"DEPTITLE_SAVE_PROBLEM_MESSAGE\") != null)}" >
+    <p style="color:red"><c:out value="${requestScope.responseMessages.get(\"DEPTITLE_SAVE_PROBLEM_MESSAGE\")}"/></p>
+</c:if>
+<c:if test="${(requestScope.responseMessages.get(\"NEW_DEP_SAVE_SUCCESS_MESSAGE\") != null)}" >
+    <p style="color:green"><c:out value="${requestScope.responseMessages.get(\"NEW_DEP_SAVE_SUCCESS_MESSAGE\")}"/></p>
+</c:if>
+<c:if test="${(requestScope.responseMessages.get(\"DEP_RECORD_UPDATE_SUCCESS_MESSAGE\") != null)}" >
+    <p style="color:green"><c:out value="${requestScope.responseMessages.get(\"DEP_RECORD_UPDATE_SUCCESS_MESSAGE\")}"/></p>
+</c:if>
 <table>
     <tr>
         <td>
             <form action="/department" method="post">
                 <input name="command" type="hidden" value="deppadd"/>
                 <input name="newdepptitle" placeholder="New DEPARTMENT Title"
-                       value="${DepartmentGetPostServlet_.depTitleInputValue}"/>
+                       value="${requestScope.depTitleInputValue}"/>
                 <input type="submit" value="Add new Department"/>
             </form>
         </td>

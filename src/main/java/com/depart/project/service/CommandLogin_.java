@@ -29,9 +29,8 @@ public class CommandLogin_ implements Command {
         String login = req.getParameter(PARAM_NAME_LOGIN);
         String pass = req.getParameter(PARAM_NAME_PASS);
 
-        // TODO use Validator.class
 
-        if (checkLogin(login, pass, req, resp)) {
+        if (checkLogin(login, pass, req)) {
             req.setAttribute("login", "true");
             pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.DEPARTMENT_LISTBUILDER_SERVLET_PATH);
         } else {
@@ -43,19 +42,16 @@ public class CommandLogin_ implements Command {
         return pagePath;
     }
 
-    private static boolean checkLogin(String login, String pass, HttpServletRequest req, HttpServletResponse resp) {
+    private static boolean checkLogin(String login, String pass, HttpServletRequest req) {
 
 
         DAOGenericImpl actor = new DAOGenericImpl();
 
-        try (
-                PreparedStatement ps = actor.selectAllWhere(new EmployeeEntityImpl(), "login", login);
+        try (PreparedStatement ps = actor.selectAllWhere(new EmployeeEntityImpl(), "login", login);
                 ResultSet rs = ps.getResultSet()) {
             if (rs.next()) {
                 if (rs.getString("pass").equals(pass)) {
-                    Cookie cookie = new Cookie("user", rs.getString("first_name"));
-                   req.setAttribute("user", rs.getString("first_name"));
-                    resp.addCookie(cookie);
+                    req.setAttribute("user", rs.getString("first_name"));
                     return true;
                 }
             }

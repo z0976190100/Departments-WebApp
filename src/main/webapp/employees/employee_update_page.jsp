@@ -27,7 +27,7 @@
 <h1>DEPARTMENT of <c:out value="${depptitle}" /></h1>
 <hr/>
 
-<form action="/employee-update" method="post">
+<form action="/employee" method="get">
 
     <input name="command" type="hidden" value="employeeUpdate">
     <input name="deppid" type="hidden" value="${deppid}"/>

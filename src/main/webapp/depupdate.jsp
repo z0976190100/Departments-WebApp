@@ -16,6 +16,12 @@
     <input type="submit" value="Flop!"/>
 </form>
 <hr/>
-
+<c:if test="${(requestScope.responseMessages.get(\"DEPTITLE_SAVE_PROBLEM_MESSAGE\") != null)}" >
+    <p style="color:red"><c:out value="${requestScope.responseMessages.get(\"DEPTITLE_SAVE_PROBLEM_MESSAGE\")}"/></p>
+</c:if>
+<form action="/departmentlist" method="post">
+    <input name="command" type="hidden" value="depplist" />
+    <input type="submit" value="<- Back to Main page"/>
+</form>
 </body>
 </html>

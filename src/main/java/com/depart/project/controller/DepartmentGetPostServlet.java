@@ -12,51 +12,59 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 // TODO: responsemessages -> responseMessagesMap
 
 import static com.depart.project.service.utils.MessageManager.errorRedirect;
 import static com.depart.project.service.utils.MessageManager.responseMessages;
 
-public class DepartmentGetPostServlet_ extends HttpServlet {
+public class DepartmentGetPostServlet extends HttpServlet {
 
     public static String depTitleInputValue = "";
-    DAOGenericImpl actor = new DAOGenericImpl();
-    Validator validator = new Validator();
 
 
     // renaming existing Department
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        responseMessages = "";
-        responseMessages += MessageManager.getInstance().getProperty(MessageManager.EMPTY_FIELD_MESSAGE) + "#";
+        Map<String, String> responseMessages = new HashMap<>();
+        String pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.DEPUPD_PAGE_PATH);
+
+        responseMessages.put("EMPTY_FIELD_MESSAGE", MessageManager.getInstance().getProperty(MessageManager.EMPTY_FIELD_MESSAGE));
 
         String newDepTitle = req.getParameter("newdepptitle");
 
         if (!newDepTitle.equals("")) {
 
-            responseMessages = "";
+            responseMessages.clear();
 
             DepartmentEntityImpl nd = new DepartmentEntityImpl(newDepTitle);
+            Validator validator = new Validator();
 
             if (validator.isExist(nd, "title", nd.getTitle())) {
-                responseMessages += MessageManager.getInstance().getProperty(MessageManager.DEPTITLE_SAVE_PROBLEM_MESSAGE) + "#";
-                depTitleInputValue = nd.getTitle();
+                responseMessages.put("DEPTITLE_SAVE_PROBLEM_MESSAGE", MessageManager.getInstance().getProperty(MessageManager.DEPTITLE_SAVE_PROBLEM_MESSAGE));
+                req.setAttribute("depTitleInputValue", nd.getTitle());
             }
 
-            if (responseMessages.equals("")) {
+            if (responseMessages.isEmpty()) {
+
+                DAOGenericImpl actor = new DAOGenericImpl();
 
                 actor.updateEntryColoumnWhereId(nd, "title", Long.valueOf(req.getParameter("deppid")), nd.getTitle());
-                }
+                pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.DEPARTMENT_LISTBUILDER_SERVLET_PATH);
+                responseMessages.put("DEP_RECORD_UPDATE_SUCCESS_MESSAGE", MessageManager.getInstance().getProperty(MessageManager.DEP_RECORD_UPDATE_SUCCESS_MESSAGE));
             }
-        String pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.DEPARTMENT_LISTBUILDER_SERVLET_PATH);
+        }
+
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pagePath);
+        req.setAttribute("responseMessages", responseMessages);
         try {
             dispatcher.forward(req, resp);
         } catch (ServletException e) {
             e.printStackTrace();
-           errorRedirect(req, resp);
+            errorRedirect(req, resp);
         }
     }
 
@@ -64,35 +72,37 @@ public class DepartmentGetPostServlet_ extends HttpServlet {
     // saving new Department
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Map<String, String> responseMessages = new HashMap<>();
 
-        responseMessages = "";
-        responseMessages += MessageManager.getInstance().getProperty(MessageManager.EMPTY_FIELD_MESSAGE) + "#";
+        responseMessages.put("EMPTY_FIELD_MESSAGE", MessageManager.getInstance().getProperty(MessageManager.EMPTY_FIELD_MESSAGE));
         String newDepTitle = req.getParameter("newdepptitle");
 
         if (!newDepTitle.equals("")) {
 
-            responseMessages = "";
+            responseMessages.clear();
             DepartmentEntityImpl nd = new DepartmentEntityImpl(newDepTitle);
+            Validator validator = new Validator();
 
             if (validator.isExist(nd, "title", nd.getTitle())) {
-                responseMessages += MessageManager.getInstance().getProperty(MessageManager.DEPTITLE_SAVE_PROBLEM_MESSAGE) + "#";
-                depTitleInputValue = nd.getTitle();
+                responseMessages.put("DEPTITLE_SAVE_PROBLEM_MESSAGE", MessageManager.getInstance().getProperty(MessageManager.DEPTITLE_SAVE_PROBLEM_MESSAGE));
+                req.setAttribute("depTitleInputValue", nd.getTitle());
             }
 
-            if (responseMessages.equals("")) {
-
+            if (responseMessages.isEmpty()) {
+                DAOGenericImpl actor = new DAOGenericImpl();
                 actor.saveEntry(nd);
-                responseMessages = "New Department record is saved.";
-                depTitleInputValue = "";
+                responseMessages.put("NEW_DEP_SAVE_SUCCESS_MESSAGE", MessageManager.getInstance().getProperty(MessageManager.NEW_DEP_SAVE_SUCCESS_MESSAGE));
+                req.setAttribute("depTitleInputValue", "");
             }
         }
         String pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.DEPARTMENT_LISTBUILDER_SERVLET_PATH);
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pagePath);
+        req.setAttribute("responseMessages", responseMessages);
         try {
             dispatcher.forward(req, resp);
         } catch (ServletException e) {
             e.printStackTrace();
-           errorRedirect(req, resp);
+            errorRedirect(req, resp);
         }
     }
 }
