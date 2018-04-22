@@ -19,7 +19,7 @@ public class EmployeesListBuilderServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doPost(req,resp);
+        doPost(req, resp);
     }
 
     @Override
@@ -28,7 +28,7 @@ public class EmployeesListBuilderServlet extends HttpServlet {
         req.setAttribute("employeesList", listUpdate(Long.valueOf(req.getParameter("deppid"))));
 
         String pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.DEP_PAGE_PATH);
-        req.getRequestDispatcher(pagePath).forward(req,resp);
+        req.getRequestDispatcher(pagePath).forward(req, resp);
     }
 
     private List<EmployeeEntityImpl> listUpdate(long id) {
@@ -37,11 +37,10 @@ public class EmployeesListBuilderServlet extends HttpServlet {
 
         DAOGenericImpl actor = new DAOGenericImpl();
 
-        PreparedStatement ps = actor.selectAllWhere(new EmployeeEntityImpl(), "department_id_long", id);
 
+        try (PreparedStatement ps = actor.selectAllWhere(new EmployeeEntityImpl(), "department_id_long", id);
+             ResultSet rs = ps.getResultSet()) {
 
-        try {
-            ResultSet rs  = ps.getResultSet();
             while (rs.next()) {
 
                 EmployeeEntityImpl employee = new EmployeeEntityImpl(
@@ -55,17 +54,9 @@ public class EmployeesListBuilderServlet extends HttpServlet {
 
                 emppList.add(employee);
             }
-        }
-        catch (SQLException e) {
+        }catch (SQLException e) {
             e.printStackTrace();
-        }finally {
-            try {
-                if (ps != null) ps.close();
-            }catch(SQLException e){
-                e.printStackTrace();
-            }
         }
-return emppList;
+        return emppList;
     }
-
 }

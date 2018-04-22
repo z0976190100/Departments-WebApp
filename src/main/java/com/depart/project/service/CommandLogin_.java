@@ -6,7 +6,6 @@ import com.depart.project.service.utils.ConfigurationManager;
 import com.depart.project.service.utils.MessageManager;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -23,27 +22,25 @@ public class CommandLogin_ implements Command {
 
     public String execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String pagePath = null;
-
-        Map<String, String> respMess = new HashMap<>();
+        Map<String, String> responseMessagesMap = new HashMap<>();
 
         String login = req.getParameter(PARAM_NAME_LOGIN);
         String pass = req.getParameter(PARAM_NAME_PASS);
 
 
-        if (checkLogin(login, pass, req)) {
+        if (checkCredentials(login, pass, req)) {
             req.setAttribute("login", "true");
             pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.DEPARTMENT_LISTBUILDER_SERVLET_PATH);
         } else {
-            respMess.put("LOGIN_PASSWORD_PROBLEM_MESSAGE", MessageManager.getInstance().getProperty(MessageManager.LOGIN_PASSWORD_PROBLEM_MESSAGE));
-            req.setAttribute("responseMessages", respMess);
+            responseMessagesMap.put("LOGIN_PASSWORD_PROBLEM_MESSAGE", MessageManager.getInstance().getProperty(MessageManager.LOGIN_PASSWORD_PROBLEM_MESSAGE));
+            req.setAttribute("responseMessages", responseMessagesMap);
             pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.LOGIN_PAGE_PATH);
         }
 
         return pagePath;
     }
 
-    private static boolean checkLogin(String login, String pass, HttpServletRequest req) {
-
+    private boolean checkCredentials(String login, String pass, HttpServletRequest req) {
 
         DAOGenericImpl actor = new DAOGenericImpl();
 

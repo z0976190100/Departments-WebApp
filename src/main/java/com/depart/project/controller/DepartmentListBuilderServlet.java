@@ -26,7 +26,6 @@ public class DepartmentListBuilderServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-
         req.setAttribute("departmentList", listUpdate());
 
        String pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.MAIN_PAGE_PATH);
@@ -40,34 +39,26 @@ public class DepartmentListBuilderServlet extends HttpServlet {
         DAOGenericImpl actor = new DAOGenericImpl();
 
         // selecting all existing departments:
-        PreparedStatement ps = actor.selectAll(new DepartmentEntityImpl());
+        try (PreparedStatement ps = actor.selectAll(new DepartmentEntityImpl());
+             ResultSet rs = ps.getResultSet()){
 
-
-        // counting employees for each department:
-        try {
-            ResultSet rs = ps.getResultSet();
             while (rs.next()) {
                 DepartmentEntityImpl dp = new DepartmentEntityImpl(rs.getString("title"));
                 dp.setId(rs.getLong("id"));
 
-                ps = actor.selectAllWhere(new EmployeeEntityImpl(), "department_id_long", dp.getId());
+                // counting employees for each department:
+                try(PreparedStatement pps = actor.selectAllWhere(new EmployeeEntityImpl(), "department_id_long", dp.getId());
+                ResultSet rrs = pps.getResultSet()){
 
-                ResultSet rrs = ps.getResultSet();
-                while (rrs.next()) dp.setEmpQuant(dp.getEmpQuant() + 1);
+                    while (rrs.next()) dp.setEmpQuant(dp.getEmpQuant() + 1);
 
-                deppList.add(dp);
+                    deppList.add(dp);
+                }
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-
-            try {
-                if (ps != null) ps.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
+             }
         return deppList;
     }
 }

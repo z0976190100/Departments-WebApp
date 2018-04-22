@@ -6,7 +6,7 @@ public interface IEntity {
 
     String getTableName();
     String getUniqueTitle();
-    Map getColoumnValueMap();
+    Map<String, String> getColoumnValueMap();
 
 
 }

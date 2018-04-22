@@ -1,7 +1,6 @@
 package com.depart.project.service;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 
 public class RequestRouter {
@@ -13,13 +12,13 @@ public class RequestRouter {
         return instance;
     }
 
-    private HashMap<String, Command> commands = new HashMap<String, Command>();
+    private HashMap<String, Command> commands = new HashMap<>();
 
     private RequestRouter() {
         commands.put("login", new CommandLogin_());
     }
 
-    public Command getCommand(HttpServletRequest req, HttpServletResponse resp) {
+    public Command getCommand(HttpServletRequest req) {
         String action = req.getParameter("command");
         Command command = commands.get(action);
         if (command == null) {

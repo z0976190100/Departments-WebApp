@@ -30,7 +30,7 @@
 
 <form action="/employee" method="post">
 
-    <input name="command" type="hidden" value="empadd">
+    <input name="command" type="hidden" value="employeeAdd">
     <input name="deppid" type="hidden" value="${deppid}"/>
     <input name="depptitle" type="hidden" value="${depptitle}"/>
 
@@ -145,7 +145,7 @@
 --%>
 
 <form action="/employeeslist" method="post">
-    <input name="command" type="hidden" value="depplist">
+    <input name="command" type="hidden" value="departmentList">
     <input name="deppid" type="hidden" value="${deppid}"/>
     <input name="depptitle" type="hidden" value="${depptitle}"/>
     <input type="submit" value="<- Back to Department page"/>

@@ -59,7 +59,7 @@ public class DepartmentEntityImpl implements IEntity {
     }
 
     @Override
-    public Map getColoumnValueMap() {
+    public Map<String, String> getColoumnValueMap() {
         return this.coloumnValueMap;
     }
 }

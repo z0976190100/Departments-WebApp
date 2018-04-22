@@ -8,10 +8,7 @@ import java.util.Map;
 
 public class DAOGenericImpl<T> implements DAO<T> {
 
-
-    @Override
-    public PreparedStatement selectAllWhere(T entity, String colName, String flag) {
-        IEntity nentity = (IEntity) entity;
+    private Connection getConnection() {
 
         try {
             DriverManager.registerDriver(new org.postgresql.Driver());
@@ -19,11 +16,24 @@ public class DAOGenericImpl<T> implements DAO<T> {
                     ConfigurationManager.getInstance().getProperty(ConfigurationManager.DB_DRIVER_NAME)
             );
 
-            Connection connection = DriverManager.getConnection(
+            return DriverManager.getConnection(
                     ConfigurationManager.getInstance().getProperty(ConfigurationManager.DB_URL),
                     ConfigurationManager.getInstance().getProperty(ConfigurationManager.DB_LOGIN),
                     ConfigurationManager.getInstance().getProperty(ConfigurationManager.DB_PASS)
             );
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+
+    @Override
+    public PreparedStatement selectAllWhere(T entity, String colName, String flag) {
+
+        IEntity nentity = (IEntity) entity;
+
+        try (Connection connection = getConnection()) {
 
             PreparedStatement ps = connection.prepareStatement(
                     "SELECT * FROM " + nentity.getTableName() + " WHERE " + colName + " = ?");
@@ -31,10 +41,9 @@ public class DAOGenericImpl<T> implements DAO<T> {
             ps.setString(1, flag);
 
             ps.executeQuery();
-            connection.close();
             return ps;
 
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
             return null;
         }
@@ -45,19 +54,9 @@ public class DAOGenericImpl<T> implements DAO<T> {
 
         IEntity nentity = (IEntity) entity;
 
-        try {
-            DriverManager.registerDriver(new org.postgresql.Driver());
-            Class.forName(
-                    ConfigurationManager.getInstance().getProperty(ConfigurationManager.DB_DRIVER_NAME)
-            );
+        try (Connection connection = getConnection()) {
 
-            Connection connection = DriverManager.getConnection(
-                    ConfigurationManager.getInstance().getProperty(ConfigurationManager.DB_URL),
-                    ConfigurationManager.getInstance().getProperty(ConfigurationManager.DB_LOGIN),
-                    ConfigurationManager.getInstance().getProperty(ConfigurationManager.DB_PASS)
-            );
-
-           PreparedStatement ps = connection.prepareStatement(
+            PreparedStatement ps = connection.prepareStatement(
                     "DELETE FROM " + nentity.getTableName() + " WHERE " + colName + " = ?");
 
             ps.setLong(1, id);
@@ -66,7 +65,7 @@ public class DAOGenericImpl<T> implements DAO<T> {
             connection.close();
             return true;
 
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
             return false;
         }
@@ -82,30 +81,16 @@ public class DAOGenericImpl<T> implements DAO<T> {
 
         IEntity nentity = (IEntity) entity;
 
-        try {
-            DriverManager.registerDriver(new org.postgresql.Driver());
-            Class.forName(
-                    ConfigurationManager.getInstance().getProperty(ConfigurationManager.DB_DRIVER_NAME)
-            );
+        try (Connection connection = getConnection()) {
 
-            Connection connection = DriverManager.getConnection(
-                    ConfigurationManager.getInstance().getProperty(ConfigurationManager.DB_URL),
-                    ConfigurationManager.getInstance().getProperty(ConfigurationManager.DB_LOGIN),
-                    ConfigurationManager.getInstance().getProperty(ConfigurationManager.DB_PASS)
-            );
-            PreparedStatement ps = null;
-
-            ps = connection.prepareStatement(
-                    "SELECT * FROM " + nentity.getTableName() + ";"
-            );
+            PreparedStatement ps = connection.prepareStatement(
+                    "SELECT * FROM " + nentity.getTableName() + ";");
 
             ps.executeQuery();
-
             connection.close();
-
             return ps;
 
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
             return null;
         }
@@ -116,19 +101,9 @@ public class DAOGenericImpl<T> implements DAO<T> {
 
         IEntity nentity = (IEntity) entity;
 
-        try {
-            DriverManager.registerDriver(new org.postgresql.Driver());
-            Class.forName(
-                    ConfigurationManager.getInstance().getProperty(ConfigurationManager.DB_DRIVER_NAME)
-            );
+        try (Connection connection = getConnection()) {
 
-            Connection connection = DriverManager.getConnection(
-                    ConfigurationManager.getInstance().getProperty(ConfigurationManager.DB_URL),
-                    ConfigurationManager.getInstance().getProperty(ConfigurationManager.DB_LOGIN),
-                    ConfigurationManager.getInstance().getProperty(ConfigurationManager.DB_PASS)
-            );
-
-           PreparedStatement ps = connection.prepareStatement(
+            PreparedStatement ps = connection.prepareStatement(
                     "SELECT * FROM " + nentity.getTableName() + " WHERE " + colName + " = ?");
 
             ps.setLong(1, flag);
@@ -137,7 +112,7 @@ public class DAOGenericImpl<T> implements DAO<T> {
             connection.close();
             return ps;
 
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
             return null;
         }
@@ -153,30 +128,17 @@ public class DAOGenericImpl<T> implements DAO<T> {
 
         IEntity nentity = (IEntity) entity;
 
-        try {
-            DriverManager.registerDriver(new org.postgresql.Driver());
-            Class.forName(
-                    ConfigurationManager.getInstance().getProperty(ConfigurationManager.DB_DRIVER_NAME)
-            );
+        try (Connection connection = getConnection()) {
 
-            Connection connection = DriverManager.getConnection(
-                    ConfigurationManager.getInstance().getProperty(ConfigurationManager.DB_URL),
-                    ConfigurationManager.getInstance().getProperty(ConfigurationManager.DB_LOGIN),
-                    ConfigurationManager.getInstance().getProperty(ConfigurationManager.DB_PASS)
-            );
-            PreparedStatement ps = null;
-
-            ps = connection.prepareStatement(
+            PreparedStatement ps = connection.prepareStatement(
                     "SELECT * FROM " + nentity.getTableName() + " WHERE ID = ? ;");
             ps.setLong(1, id);
 
             ps.executeQuery();
-
             connection.close();
-
             return ps;
 
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
             return null;
         }
@@ -186,58 +148,45 @@ public class DAOGenericImpl<T> implements DAO<T> {
     public boolean saveEntry(T entity) {
 
         IEntity nentity = (IEntity) entity;
+        String tn = nentity.getTableName();
+        String ut = nentity.getUniqueTitle();
+        Map<String, String> cv = nentity.getColoumnValueMap();
 
-        try {
-            DriverManager.registerDriver(new org.postgresql.Driver());
-            Class.forName(
-                    ConfigurationManager.getInstance().getProperty(ConfigurationManager.DB_DRIVER_NAME)
-            );
-
-            Connection connection = DriverManager.getConnection(
-                    ConfigurationManager.getInstance().getProperty(ConfigurationManager.DB_URL),
-                    ConfigurationManager.getInstance().getProperty(ConfigurationManager.DB_LOGIN),
-                    ConfigurationManager.getInstance().getProperty(ConfigurationManager.DB_PASS)
-            );
-
-            PreparedStatement ps = null;
-            String tn = nentity.getTableName();
-            String ut = nentity.getUniqueTitle();
-            Map<String, String> cv = nentity.getColoumnValueMap();
-
-            ps = connection.prepareStatement(
-                    "INSERT INTO " + tn + " ( " + ut + ", id ) VALUES (? , DEFAULT ) RETURNING * ;");
+        try (Connection connection = getConnection();
+             PreparedStatement ps = connection.prepareStatement(
+                     "INSERT INTO " + tn + " ( " + ut + ", id ) VALUES (? , DEFAULT ) RETURNING * ;")) {
 
             ps.setString(1, cv.get(ut));
             ResultSet rs = ps.executeQuery();
             rs.next();
             long id = rs.getLong("id");
 
-            ps.close();
             for (String colName : cv.keySet()) {
 
                 if (colName.contains("_long")) {
                     long colV = Long.valueOf(cv.get(colName));
-                    ps = connection.prepareStatement(
+                    try (PreparedStatement pps = connection.prepareStatement(
                             "UPDATE " + tn + " SET " + colName + " = " + colV + " WHERE ID = " + id + ";"
-                    );
-                    ps.executeUpdate();
-                    continue;
+                    )) {
+                        pps.executeUpdate();
+                        continue;
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
                 }
+                try( PreparedStatement pss = connection.prepareStatement(
+                        "UPDATE " + tn + " SET " + colName + " = '" + cv.get(colName) + "' WHERE ID = " + id + ";")){
 
-                ps = connection.prepareStatement(
-                        "UPDATE " + tn + " SET " + colName + " = '" + cv.get(colName) + "' WHERE ID = " + id + ";"
-                );
-
-                ps.executeUpdate();
+                    pss.executeUpdate();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
-
-            ps.close();
-            connection.close();
 
             return true;
 
-        } catch (SQLException | ClassNotFoundException ce) {
-            ce.printStackTrace();
+        } catch (SQLException | NullPointerException e) {
+            e.printStackTrace();
             return false;
         }
 
@@ -248,32 +197,17 @@ public class DAOGenericImpl<T> implements DAO<T> {
 
         IEntity nentity = (IEntity) entity;
 
-        try {
-            DriverManager.registerDriver(new org.postgresql.Driver());
-            Class.forName(
-                    ConfigurationManager.getInstance().getProperty(ConfigurationManager.DB_DRIVER_NAME)
-            );
+        try (Connection connection = getConnection();
+             PreparedStatement ps = connection.prepareStatement(
+                     "DELETE FROM " + nentity.getTableName() + " WHERE ID = ? ;")){
 
-            Connection connection = DriverManager.getConnection(
-                    ConfigurationManager.getInstance().getProperty(ConfigurationManager.DB_URL),
-                    ConfigurationManager.getInstance().getProperty(ConfigurationManager.DB_LOGIN),
-                    ConfigurationManager.getInstance().getProperty(ConfigurationManager.DB_PASS)
-            );
-
-            PreparedStatement ps = null;
-            ps = connection.prepareStatement(
-                    "DELETE FROM " + nentity.getTableName() + " WHERE ID = ? ;");
             ps.setLong(1, id);
-
             ps.executeUpdate();
-
-            connection.close();
-            ps.close();
 
             return true;
 
-        } catch (SQLException | ClassNotFoundException ce) {
-            ce.printStackTrace();
+        } catch (SQLException | NullPointerException e) {
+            e.printStackTrace();
             return false;
         }
     }
@@ -282,32 +216,19 @@ public class DAOGenericImpl<T> implements DAO<T> {
     @Override
     public boolean updateEntryColoumnWhereId(T entry, String colName, long id, String newValue) {
         IEntity nentity = (IEntity) entry;
+        String tn = nentity.getTableName();
+        String ut = nentity.getUniqueTitle();
 
-        try {
-            DriverManager.registerDriver(new org.postgresql.Driver());
-            Class.forName(
-                    ConfigurationManager.getInstance().getProperty(ConfigurationManager.DB_DRIVER_NAME)
-            );
+        try (Connection connection = getConnection();
+             PreparedStatement ps = connection.prepareStatement(
+                     "UPDATE " + tn + " SET " + colName + " = '" + newValue + "' WHERE ID = " + id + ";")){
 
-            Connection connection = DriverManager.getConnection(
-                    ConfigurationManager.getInstance().getProperty(ConfigurationManager.DB_URL),
-                    ConfigurationManager.getInstance().getProperty(ConfigurationManager.DB_LOGIN),
-                    ConfigurationManager.getInstance().getProperty(ConfigurationManager.DB_PASS)
-            );
-
-            PreparedStatement ps = null;
-            String tn = nentity.getTableName();
-            String ut = nentity.getUniqueTitle();
-
-            ps = connection.prepareStatement(
-                    "UPDATE " + tn + " SET " + colName + " = '" + newValue + "' WHERE ID = " + id + ";");
-
-                ps.executeUpdate();
+            ps.executeUpdate();
 
             return true;
 
-        } catch (SQLException | ClassNotFoundException ce) {
-            ce.printStackTrace();
+        } catch (SQLException | NullPointerException e) {
+            e.printStackTrace();
             return false;
         }
     }

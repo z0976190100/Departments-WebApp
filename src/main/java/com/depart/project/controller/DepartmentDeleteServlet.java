@@ -5,7 +5,6 @@ import com.depart.project.persistense.entity.DepartmentEntityImpl;
 import com.depart.project.persistense.entity.EmployeeEntityImpl;
 import com.depart.project.service.utils.ConfigurationManager;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -33,9 +32,9 @@ public class DepartmentDeleteServlet extends HttpServlet{
         actor.deleteEntry(new DepartmentEntityImpl(), idd);
         actor.deleteAllEntriesWhere(new EmployeeEntityImpl(), "department_id_long", idd);
         String pagePath =  ConfigurationManager.getInstance().getProperty(ConfigurationManager.DEPARTMENT_LISTBUILDER_SERVLET_PATH);
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pagePath);
+
         try {
-            dispatcher.forward(req, resp);
+            req.getRequestDispatcher(pagePath).forward(req, resp);
         } catch (ServletException e) {
             e.printStackTrace();
            errorRedirect(req, resp);

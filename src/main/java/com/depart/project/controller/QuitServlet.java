@@ -2,7 +2,6 @@ package com.depart.project.controller;
 
 import com.depart.project.service.utils.ConfigurationManager;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -22,9 +21,9 @@ public class QuitServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.LOGIN_PAGE_PATH);
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pagePath);
+
         try {
-            dispatcher.forward(req, resp);
+            req.getRequestDispatcher(pagePath).forward(req, resp);
         } catch (ServletException e) {
             e.printStackTrace();
             errorRedirect(req, resp);

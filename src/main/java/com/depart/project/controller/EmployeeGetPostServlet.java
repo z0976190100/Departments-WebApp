@@ -7,7 +7,6 @@ import com.depart.project.service.utils.EmployeeBuilder;
 import com.depart.project.service.utils.MessageManager;
 import com.depart.project.service.utils.Validator;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,10 +22,10 @@ public class EmployeeGetPostServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         Map<String, String> responseMessagesMap = new HashMap<>();
         DAOGenericImpl actor = new DAOGenericImpl();
         Validator validator = new Validator();
-
         EmployeeEntityImpl newE = new EmployeeBuilder().build(req);
 
         if (validator.employeeFormValidate(responseMessagesMap, newE)) {
@@ -70,10 +69,9 @@ public class EmployeeGetPostServlet extends HttpServlet {
         }
         req.setAttribute("responseMessages", responseMessagesMap);
         String pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.EMPLOYEE_ADD_PAGE_PATH);
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pagePath);
 
         try {
-            dispatcher.forward(req, resp);
+            req.getRequestDispatcher(pagePath).forward(req, resp);
         } catch (ServletException e) {
             e.printStackTrace();
             errorRedirect(req, resp);

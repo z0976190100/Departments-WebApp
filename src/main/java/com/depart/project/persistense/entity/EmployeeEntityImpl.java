@@ -23,7 +23,6 @@ public class EmployeeEntityImpl implements IEntity {
     }
 
     public EmployeeEntityImpl(String firstName, String lastName, String birthDate, long department, String login, String pass) {
-        //this.id = id;
         this.firstName = firstName;
         this.coloumnValueMap.put("first_name", this.firstName);
         this.lastName = lastName;

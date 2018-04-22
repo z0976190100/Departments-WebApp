@@ -22,7 +22,7 @@
 <h1>DEPARTMENT of <c:out value="${depptitle}" /></h1>
 <h3>EMPLOYEES</h3>
 <form action="/employees/employee_add_page.jsp" method="post" style="font-family:'Roboto Slab'">
-    <input name="command" type="hidden" value="empadd">
+    <input name="command" type="hidden" value="employeeAdd">
     <input name="deppid" type="hidden" value="${deppid}" />
     <input name="depptitle" type="hidden" value="${depptitle}" />
     <input type="submit" value="Add new Employee"/>
@@ -71,7 +71,7 @@
 
         <td bgcolor="#cc3300">
             <form action="/employeedelete" method="post">
-                <input name="command" type="hidden" value="empdelete" />
+                <input name="command" type="hidden" value="employeeDelete" />
                 <input name="empid" type="hidden" value="${empp.id}" />
                 <input name="deppid" type="hidden" value="${deppid}" />
                 <input name="depptitle" type="hidden" value="${depptitle}"  />
@@ -85,7 +85,7 @@
 <hr/>
 
 <form action="/departmentlist" method="post">
-    <input name="command" type="hidden" value="depplist" />
+    <input name="command" type="hidden" value="departmentList" />
     <input type="submit" value="<- Back to Main page"/>
 </form>
 

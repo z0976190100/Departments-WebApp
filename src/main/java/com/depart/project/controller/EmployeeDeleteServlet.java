@@ -4,7 +4,6 @@ import com.depart.project.persistense.dao.DAOGenericImpl;
 import com.depart.project.persistense.entity.EmployeeEntityImpl;
 import com.depart.project.service.utils.ConfigurationManager;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,9 +29,9 @@ public class EmployeeDeleteServlet extends HttpServlet {
         long idd = (long) Long.valueOf(str);
         actor.deleteEntry(new EmployeeEntityImpl(), idd);
         String pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.EMPLOYEES_LISTBUILDER_SERVLET_PATH);
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pagePath);
+
         try {
-            dispatcher.forward(req, resp);
+            req.getRequestDispatcher(pagePath).forward(req, resp);
         } catch (ServletException e) {
             e.printStackTrace();
             errorRedirect(req, resp);
