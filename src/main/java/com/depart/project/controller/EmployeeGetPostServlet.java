@@ -34,7 +34,7 @@ public class EmployeeGetPostServlet extends HttpServlet {
             Set<String> ks = newE.getColoumnValueMap().keySet();
 
             for (String col : ks) {
-                if (!col.contains("_long")) {
+                if (!col.contains("_long") && !col.equals("birth_date")) {
                     actor.updateEntryColoumnWhereId(newE,
                             col,
                             newE.getId(),

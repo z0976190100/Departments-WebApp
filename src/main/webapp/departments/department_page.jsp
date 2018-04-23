@@ -62,7 +62,7 @@
                 <input name="emplname" type="hidden" value="${empp.lastName}" />
                 <input name="emplogin" type="hidden" value="${empp.login}" />
                 <input name="emppass" type="hidden" value="${empp.pass}" />
-                <input name="empBirthDate" type="hidden" value="${empp.birthDate}" />
+                <input name="birthDate" type="hidden" value="${empp.birthDate}" />
                 <input name="deppid" type="hidden" value="${deppid}" />
                 <input name="depptitle" type="hidden" value="${depptitle}" />
                 <input type="submit" value="Edit" />
