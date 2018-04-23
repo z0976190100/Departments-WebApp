@@ -25,6 +25,14 @@
     <p style="color:red"><c:out value="${requestScope.responseMessages.get(\"LOGIN_PASSWORD_PROBLEM_MESSAGE\")}"/></p>
 </c:if>
 
+<form action="/just" method="post">
+    <input type="text" name="date" />
+    <input type="submit" value="go">
+</form>
+<c:if test="${(requestScope.date != null)}" >
+    <h4>date is <c:out value="${requestScope.date}" /></h4>
+</c:if>
+
 
 </body>
 </html>

@@ -1,5 +1,6 @@
 package com.depart.project.persistense.entity;
 
+import java.sql.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,7 +14,7 @@ public class EmployeeEntityImpl implements IEntity {
     private String firstName;
     private String lastName;
     private long department;
-    private String birthDate;
+    private Date birthDate;
     private String login;
     private String pass;
     private String pass2;
@@ -22,13 +23,13 @@ public class EmployeeEntityImpl implements IEntity {
     public EmployeeEntityImpl() {
     }
 
-    public EmployeeEntityImpl(String firstName, String lastName, String birthDate, long department, String login, String pass) {
+    public EmployeeEntityImpl(String firstName, String lastName, Date birthDate, long department, String login, String pass) {
         this.firstName = firstName;
         this.coloumnValueMap.put("first_name", this.firstName);
         this.lastName = lastName;
         this.coloumnValueMap.put("last_name", this.lastName);
         this.birthDate = birthDate;
-        this.coloumnValueMap.put("birth_date", this.birthDate);
+        this.coloumnValueMap.put("birth_date", "bdate");
         this.department = department;
         this.coloumnValueMap.put("department_id_long", Long.toString(this.department));
         this.login = login; // unique title
@@ -62,11 +63,12 @@ public class EmployeeEntityImpl implements IEntity {
         this.lastName = lastName;
     }
 
-    public String getBirthDate() {
+    @Override
+    public Date getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(String birthDate) {
+    public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
 

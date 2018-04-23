@@ -46,7 +46,7 @@ public class EmployeesListBuilderServlet extends HttpServlet {
                 EmployeeEntityImpl employee = new EmployeeEntityImpl(
                         rs.getString("first_name"),
                         rs.getString("last_name"),
-                        rs.getString("birth_date"),
+                        rs.getDate("birth_date"),
                         rs.getLong("department_id_long"),
                         rs.getString("login"),
                         rs.getString("pass"));

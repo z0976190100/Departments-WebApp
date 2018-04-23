@@ -1,5 +1,6 @@
 package com.depart.project.persistense.entity;
 
+import java.sql.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -61,5 +62,10 @@ public class DepartmentEntityImpl implements IEntity {
     @Override
     public Map<String, String> getColoumnValueMap() {
         return this.coloumnValueMap;
+    }
+
+    @Override
+    public Date getBirthDate() {
+        return null;
     }
 }

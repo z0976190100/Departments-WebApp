@@ -2,6 +2,8 @@ package com.depart.project.controller;
 
 import com.depart.project.persistense.dao.DAOGenericImpl;
 import com.depart.project.persistense.entity.EmployeeEntityImpl;
+import com.depart.project.persistense.entity.IEntity;
+import com.depart.project.service.utils.ConfigurationManager;
 import org.json.simple.JSONObject;
 
 import javax.servlet.ServletException;
@@ -10,23 +12,91 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 public class JustServlet extends HttpServlet {
+
+    Object respond;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req, resp);
     }
 
+    private Connection getConnection() {
+
+        try {
+            DriverManager.registerDriver(new org.postgresql.Driver());
+            Class.forName(
+                    ConfigurationManager.getInstance().getProperty(ConfigurationManager.DB_DRIVER_NAME)
+            );
+
+            return DriverManager.getConnection(
+                    ConfigurationManager.getInstance().getProperty(ConfigurationManager.DB_URL),
+                    ConfigurationManager.getInstance().getProperty(ConfigurationManager.DB_LOGIN),
+                    ConfigurationManager.getInstance().getProperty(ConfigurationManager.DB_PASS)
+            );
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public boolean saveEntry(java.sql.Date date) {
+
+
+        try (Connection connection = getConnection();
+             PreparedStatement ps = connection.prepareStatement(
+                     "INSERT INTO department1.datetest ( date ) VALUES (?) RETURNING * ;")) {
+
+ps.setDate(1, date);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            respond = rs.getObject("date");
+            return true;
+        } catch (SQLException | NullPointerException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+    }
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        resp.setHeader("Cache-Control", "no-cache, no-store, must-revalidate, private");
+        String bdate = req.getParameter("date");
+
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+
+        try {
+
+            Date daDate = formatter.parse(bdate);
+            System.out.println(daDate);
+            System.out.println(formatter.format(daDate));
+
+            java.sql.Date sql = new java.sql.Date(daDate.getTime());
+
+            saveEntry(sql);
+
+            req.setAttribute("date", respond);
+            req.getRequestDispatcher("/index.jsp").forward(req,resp);
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
+
+
+
+
+        /*resp.setHeader("Cache-Control", "no-cache, no-store, must-revalidate, private");
         resp.setHeader("Pragma", "no-cache");
         resp.setHeader("Access-Control-Allow-Origin", "*");
         resp.setDateHeader("Expires", 0);
@@ -79,6 +149,6 @@ public class JustServlet extends HttpServlet {
 
         PrintWriter writer = resp.getWriter();
         writer.print(jResp);
-        writer.flush();
+        writer.flush();*/
     }
 }

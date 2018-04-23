@@ -11,6 +11,7 @@ public interface DAO<T>{
    PreparedStatement selectAllWhere(T entity, String colName, String flag);
    boolean saveEntry(T entity);
    boolean updateEntry(T entity, long id);
+   boolean updateEntryDate(T entity, long id, java.sql.Date date);
    boolean deleteEntry(T entity, long id);
    boolean deleteAllEntriesWhere(T entity, String colName, long id);
    boolean deleteAllEntriesWhere(T entity, String colName, String flag);

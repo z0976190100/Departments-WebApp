@@ -1,7 +1,6 @@
 CREATE TABLE department
 (
   title     TEXT,
-  employees BIGINT,
   id        SERIAL NOT NULL
     CONSTRAINT department_pkey
     PRIMARY KEY

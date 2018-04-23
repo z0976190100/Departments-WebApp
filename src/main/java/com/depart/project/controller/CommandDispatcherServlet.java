@@ -13,13 +13,13 @@ import static com.depart.project.service.utils.MessageManager.errorRedirect;
 
 // TODO servlet error redirect
 
-public class CommandServlet_ extends HttpServlet {
+public class CommandDispatcherServlet extends HttpServlet {
 
 /*static {createTable("department");}*/
 
    private RequestRouter requestHelper = RequestRouter.getInstance();
 
-    public CommandServlet_(){
+    public CommandDispatcherServlet(){
         super();
     }
 

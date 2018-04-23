@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -40,6 +41,7 @@ public class EmployeeGetPostServlet extends HttpServlet {
                             (String) newE.getColoumnValueMap().get(col));
                 }
             }
+            actor.updateEntryDate(newE, newE.getId(), (Date) req.getAttribute("birthDate"));
             responseMessagesMap.put("EMPLOYEE_RECORD_UPDATE_SUCCESS_MESSAGE", MessageManager.getInstance().getProperty(MessageManager.EMPLOYEE_RECORD_UPDATE_SUCCESS_MESSAGE));
         }
         req.setAttribute("responseMessages", responseMessagesMap);
@@ -65,6 +67,7 @@ public class EmployeeGetPostServlet extends HttpServlet {
 
         if (validator.employeeFormValidate(responseMessagesMap, newE)) {
             actor.saveEntry(newE);
+            //actor.updateEntryDate(newE, newE.getId(), (Date) req.getAttribute("birthDate"));
             responseMessagesMap.put("NEW_EMPLOYEE_SAVE_SUCCESS_MESSAGE", MessageManager.getInstance().getProperty(MessageManager.NEW_EMPLOYEE_SAVE_SUCCESS_MESSAGE));
         }
         req.setAttribute("responseMessages", responseMessagesMap);

@@ -27,7 +27,7 @@
 <h1>DEPARTMENT of <c:out value="${depptitle}" /></h1>
 <hr/>
 
-<form action="/employee" method="get">
+<form action="/employees/employee" method="get">
 
     <input name="command" type="hidden" value="employeeUpdate">
     <input name="deppid" type="hidden" value="${deppid}"/>
@@ -77,7 +77,7 @@
                 <br>
                 <input type="date"
                        name="birthDate"
-                       value="${param.empBirthDate}"
+                       value="${param.BirthDate}"
                        min="1918-01-01" max="2002-12-31"
                        required />
                 <br></td>

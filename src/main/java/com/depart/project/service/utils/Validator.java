@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.Date;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -38,15 +39,8 @@ public class Validator {
 
     }
 
-    public boolean isValidDate(String toValidate) {
+    public boolean isValidDate(Date toValidate) {
 
-        toValidate = toValidate.trim();
-
-        try {
-            LocalDate date = LocalDate.parse(toValidate, DateTimeFormatter.ISO_LOCAL_DATE);
-        } catch (DateTimeParseException e) {
-            return false;
-        }
 
         return true;
     }

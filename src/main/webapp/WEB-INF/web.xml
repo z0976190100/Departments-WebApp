@@ -7,9 +7,7 @@
           xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
           version="3.0">
 
-  <!--TODO FIND GOOD EXAMLPE -->
-
-  <display-name>FUUUUCK</display-name>
+  <display-name>DepartmentsApp</display-name>
 
   <jsp-config>
     <jsp-property-group>
@@ -20,7 +18,7 @@
 
   <servlet>
     <servlet-name>loginController</servlet-name>
-    <servlet-class>com.depart.project.controller.CommandServlet_</servlet-class>
+    <servlet-class>com.depart.project.controller.CommandDispatcherServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>loginController</servlet-name>
@@ -51,7 +49,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>employeeController</servlet-name>
-    <url-pattern>/employee</url-pattern>
+    <url-pattern>/employees/employee</url-pattern>
   </servlet-mapping>
 
   <servlet>
@@ -98,6 +96,15 @@
     <servlet-name>quitServlet</servlet-name>
     <url-pattern>/quit</url-pattern>
   </servlet-mapping>
+
+  <filter>
+    <filter-name>birthDateFilter</filter-name>
+    <filter-class>com.depart.project.controller.BirthDateFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>birthDateFilter</filter-name>
+    <url-pattern>/employees/*</url-pattern>
+  </filter-mapping>
 
 
 </web-app>

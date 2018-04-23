@@ -15,7 +15,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CommandLogin_ implements Command {
+public class CommandLoginProcessor implements Command {
 
     private static final String PARAM_NAME_LOGIN = "login";
     private static final String PARAM_NAME_PASS = "pass";

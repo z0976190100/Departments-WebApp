@@ -174,6 +174,11 @@ public class DAOGenericImpl<T> implements DAO<T> {
                         e.printStackTrace();
                     }
                 }
+                if (colName.equals("birth_date")) {
+                    updateEntryDate(entity, id, nentity.getBirthDate());
+                        continue;
+                }
+
                 try( PreparedStatement pss = connection.prepareStatement(
                         "UPDATE " + tn + " SET " + colName + " = '" + cv.get(colName) + "' WHERE ID = " + id + ";")){
 
@@ -236,5 +241,25 @@ public class DAOGenericImpl<T> implements DAO<T> {
     @Override
     public boolean updateEntry(T entity, long id) {
         return false;
+    }
+
+
+    @Override
+    public boolean updateEntryDate(T entity, long id, java.sql.Date date) {
+
+        IEntity nentity = (IEntity) entity;
+        String tn = nentity.getTableName();
+        try (Connection connection = getConnection();
+             PreparedStatement ps = connection.prepareStatement(
+                     "UPDATE " + tn + " SET birth_date = ? WHERE ID = " + id + ";")) {
+            ps.setDate(1, date);
+            ps.executeUpdate();
+
+            return true;
+        } catch (SQLException | NullPointerException e) {
+            e.printStackTrace();
+            return false;
+        }
+
     }
 }
