@@ -78,7 +78,7 @@
                 <input type="date"
                        name="birthDate"
                        value="${param.birthDate}"
-                       min="1918-01-01" max="2002-12-31"
+                       min="${requestScope.minDate}" max="${requestScope.maxDate}"
                        required />
                 <br></td>
         </tr>
