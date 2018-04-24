@@ -27,7 +27,7 @@
 
   <servlet>
     <servlet-name>departmentController</servlet-name>
-    <servlet-class>com.depart.project.controller.DepartmentGetPostServlet</servlet-class>
+    <servlet-class>com.depart.project.controller.DepartmentServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>departmentController</servlet-name>
@@ -45,7 +45,7 @@
 
   <servlet>
     <servlet-name>employeeController</servlet-name>
-    <servlet-class>com.depart.project.controller.EmployeeGetPostServlet</servlet-class>
+    <servlet-class>com.depart.project.controller.EmployeeServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>employeeController</servlet-name>

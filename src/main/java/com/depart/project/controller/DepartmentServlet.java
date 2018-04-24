@@ -17,7 +17,7 @@ import java.util.Map;
 
 import static com.depart.project.service.utils.MessageManager.errorRedirect;
 
-public class DepartmentGetPostServlet extends HttpServlet {
+public class DepartmentServlet extends HttpServlet {
 
 
 

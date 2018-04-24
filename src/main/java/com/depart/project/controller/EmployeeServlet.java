@@ -19,7 +19,7 @@ import java.util.Set;
 
 import static com.depart.project.service.utils.MessageManager.errorRedirect;
 
-public class EmployeeGetPostServlet extends HttpServlet {
+public class EmployeeServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
