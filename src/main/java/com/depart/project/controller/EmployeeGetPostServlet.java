@@ -29,12 +29,12 @@ public class EmployeeGetPostServlet extends HttpServlet {
         Validator validator = new Validator();
         EmployeeEntityImpl newE = new EmployeeBuilder().build(req);
 
-        if (validator.employeeFormValidate(responseMessagesMap, newE)) {
+        if (validator.employeeUpdFormValidate(responseMessagesMap, newE)) {
 
             Set<String> ks = newE.getColoumnValueMap().keySet();
 
             for (String col : ks) {
-                if (!col.contains("_long") && !col.equals("birth_date")) {
+                if (!col.contains("_long") && !col.equals("birth_date") && !col.equals("login")) {
                     actor.updateEntryColoumnWhereId(newE,
                             col,
                             newE.getId(),

@@ -80,15 +80,6 @@
   </servlet-mapping>
 
   <servlet>
-    <servlet-name>justServlet</servlet-name>
-    <servlet-class>com.depart.project.controller.JustServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>justServlet</servlet-name>
-    <url-pattern>/just</url-pattern>
-  </servlet-mapping>
-
-  <servlet>
     <servlet-name>quitServlet</servlet-name>
     <servlet-class>com.depart.project.controller.QuitServlet</servlet-class>
   </servlet>

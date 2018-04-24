@@ -47,7 +47,6 @@ public class Validator {
 
     public boolean employeeFormValidate(Map<String, String> respMess, EmployeeEntityImpl newE) {
 
-        // TODO for updating check if login and pass not changed, say "formValid=true", but if it changes, check if unique in DB
 
         boolean formValid = true;
 
@@ -60,6 +59,19 @@ public class Validator {
             respMess.put("LOGIN_SAVE_PROBLEM_MESSAGE", MessageManager.getInstance().getProperty(MessageManager.LOGIN_SAVE_PROBLEM_MESSAGE));
             formValid = false;
         }
+
+        if (!newE.getPass().equals(newE.getPass2())) {
+            respMess.put("FAILED_PASS_CONFIRMATION_MESSAGE", MessageManager.getInstance().getProperty(MessageManager.FAILED_PASS_CONFIRMATION_MESSAGE));
+            formValid = false;
+        }
+
+        return formValid;
+    }
+
+    public boolean employeeUpdFormValidate(Map<String, String> respMess, EmployeeEntityImpl newE) {
+
+
+        boolean formValid = true;
 
         if (!newE.getPass().equals(newE.getPass2())) {
             respMess.put("FAILED_PASS_CONFIRMATION_MESSAGE", MessageManager.getInstance().getProperty(MessageManager.FAILED_PASS_CONFIRMATION_MESSAGE));

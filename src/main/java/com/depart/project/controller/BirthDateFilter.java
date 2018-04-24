@@ -5,7 +5,6 @@ import com.depart.project.service.utils.Validator;
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -18,10 +17,6 @@ public class BirthDateFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-
-        /*DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        Date date = new Date();*/
-
 
     }
 
@@ -51,7 +46,6 @@ public class BirthDateFilter implements Filter {
                 }
             } catch (ParseException e) {
                 e.printStackTrace();
-                // TODO message WRONG DATE FORMAT
             }
         }
         chain.doFilter(request, response);

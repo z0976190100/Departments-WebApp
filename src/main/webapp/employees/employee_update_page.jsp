@@ -91,14 +91,14 @@
                        placeholder="my@mail.dot.com"
                        value="${param.emplogin}"
                        size=25 maxlength=125
-                       required />
+                       disabled />
                 <br>
-                <c:if test="${(requestScope.responseMessages.get(\"LOGIN_SAVE_PROBLEM_MESSAGE\") != null)}" >
+                <%--<c:if test="${(requestScope.responseMessages.get(\"LOGIN_SAVE_PROBLEM_MESSAGE\") != null)}" >
                     <p style="color:red"><c:out value="${requestScope.responseMessages.get(\"LOGIN_SAVE_PROBLEM_MESSAGE\")}"/></p>
                 </c:if>
                 <c:if test="${(requestScope.responseMessages.get(\"INVALID_EMAIL_MESSAGE\") != null)}" >
                     <p style="color:red"><c:out value="${requestScope.responseMessages.get(\"INVALID_EMAIL_MESSAGE\")}"/></p>
-                </c:if>
+                </c:if>--%>
             </td>
         </tr>
         <tr>
