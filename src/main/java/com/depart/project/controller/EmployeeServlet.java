@@ -42,15 +42,7 @@ public class EmployeeServlet extends HttpServlet {
                     actor.saveEntry(newE);
                     responseMessagesMap.put("NEW_EMPLOYEE_SAVE_SUCCESS_MESSAGE", MessageManager.getInstance().getProperty(MessageManager.NEW_EMPLOYEE_SAVE_SUCCESS_MESSAGE));
                 }
-                req.setAttribute("responseMessages", responseMessagesMap);
                 pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.EMPLOYEE_ADD_PAGE_PATH);
-
-                try {
-                    req.getRequestDispatcher(pagePath).forward(req, resp);
-                } catch (ServletException e) {
-                    e.printStackTrace();
-                    errorRedirect(req, resp);
-                }
                 break;
 
             case("employeeUpdate"):
@@ -69,18 +61,20 @@ public class EmployeeServlet extends HttpServlet {
                     actor.updateEntryDate(newE, newE.getId(), (Date) req.getAttribute("birthDate"));
                     responseMessagesMap.put("EMPLOYEE_RECORD_UPDATE_SUCCESS_MESSAGE", MessageManager.getInstance().getProperty(MessageManager.EMPLOYEE_RECORD_UPDATE_SUCCESS_MESSAGE));
                 }
-                req.setAttribute("responseMessages", responseMessagesMap);
                 pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.EMPLOYEE_UPD_PAGE_PATH);
-
-                try {
-                    req.getRequestDispatcher(pagePath).forward(req, resp);
-                } catch (ServletException e) {
-                    e.printStackTrace();
-                    errorRedirect(req, resp);
-                }
                 break;
+
+                default:
+                    pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.EMPLOYEES_LISTBUILDER_SERVLET_PATH);
         }
 
+        req.setAttribute("responseMessages", responseMessagesMap);
+        try {
+            req.getRequestDispatcher(pagePath).forward(req, resp);
+        } catch (ServletException e) {
+            e.printStackTrace();
+            errorRedirect(req, resp);
+        }
 
     }
 }

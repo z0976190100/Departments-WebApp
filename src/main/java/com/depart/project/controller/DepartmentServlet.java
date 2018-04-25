@@ -56,13 +56,6 @@ public class DepartmentServlet extends HttpServlet {
                 }
                 pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.DEPARTMENT_LISTBUILDER_SERVLET_PATH);
 
-                req.setAttribute("responseMessages", responseMessagesMap);
-                try {
-                    req.getRequestDispatcher(pagePath).forward(req, resp);
-                } catch (ServletException e) {
-                    e.printStackTrace();
-                    errorRedirect(req, resp);
-                }
                 break;
 
             case("departmentUpdate"):
@@ -92,16 +85,19 @@ public class DepartmentServlet extends HttpServlet {
                         responseMessagesMap.put("DEP_RECORD_UPDATE_SUCCESS_MESSAGE", MessageManager.getInstance().getProperty(MessageManager.DEP_RECORD_UPDATE_SUCCESS_MESSAGE));
                     }
                 }
-
-                req.setAttribute("responseMessagesMap", responseMessagesMap);
-                try {
-                    req.getRequestDispatcher(pagePath).forward(req, resp);
-                } catch (ServletException e) {
-                    e.printStackTrace();
-                    errorRedirect(req, resp);
-                }
                 break;
 
+                default:
+                    pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.DEPARTMENT_LISTBUILDER_SERVLET_PATH);
+
+        }
+
+        req.setAttribute("responseMessages", responseMessagesMap);
+        try {
+            req.getRequestDispatcher(pagePath).forward(req, resp);
+        } catch (ServletException e) {
+            e.printStackTrace();
+            errorRedirect(req, resp);
         }
     }
 
