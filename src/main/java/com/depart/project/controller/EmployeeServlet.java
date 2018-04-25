@@ -23,40 +23,9 @@ public class EmployeeServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        Map<String, String> responseMessagesMap = new HashMap<>();
-        DAOGenericImpl actor = new DAOGenericImpl();
-        Validator validator = new Validator();
-        EmployeeEntityImpl newE = new EmployeeBuilder().build(req);
-
-        if (validator.employeeUpdFormValidate(responseMessagesMap, newE)) {
-
-            Set<String> ks = newE.getColoumnValueMap().keySet();
-
-            for (String col : ks) {
-                if (!col.contains("_long") && !col.equals("birth_date") && !col.equals("login")) {
-                    actor.updateEntryColoumnWhereId(newE,
-                            col,
-                            newE.getId(),
-                            (String) newE.getColoumnValueMap().get(col));
-                }
-            }
-            actor.updateEntryDate(newE, newE.getId(), (Date) req.getAttribute("birthDate"));
-            responseMessagesMap.put("EMPLOYEE_RECORD_UPDATE_SUCCESS_MESSAGE", MessageManager.getInstance().getProperty(MessageManager.EMPLOYEE_RECORD_UPDATE_SUCCESS_MESSAGE));
-        }
-        req.setAttribute("responseMessages", responseMessagesMap);
-        String pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.EMPLOYEE_UPD_PAGE_PATH);
-
-        try {
-            req.getRequestDispatcher(pagePath).forward(req, resp);
-        } catch (ServletException e) {
-            e.printStackTrace();
-            errorRedirect(req, resp);
-
-        }
+        doPost(req, resp);
     }
 
-    // saving new employee to DB
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -64,20 +33,54 @@ public class EmployeeServlet extends HttpServlet {
         DAOGenericImpl actor = new DAOGenericImpl();
         Validator validator = new Validator();
         EmployeeEntityImpl newE = new EmployeeBuilder().build(req);
+        String pagePath = null;
 
-        if (validator.employeeFormValidate(responseMessagesMap, newE)) {
-            actor.saveEntry(newE);
-            //actor.updateEntryDate(newE, newE.getId(), (Date) req.getAttribute("birthDate"));
-            responseMessagesMap.put("NEW_EMPLOYEE_SAVE_SUCCESS_MESSAGE", MessageManager.getInstance().getProperty(MessageManager.NEW_EMPLOYEE_SAVE_SUCCESS_MESSAGE));
-        }
-        req.setAttribute("responseMessages", responseMessagesMap);
-        String pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.EMPLOYEE_ADD_PAGE_PATH);
+        switch (req.getParameter("command")){
 
-        try {
-            req.getRequestDispatcher(pagePath).forward(req, resp);
-        } catch (ServletException e) {
-            e.printStackTrace();
-            errorRedirect(req, resp);
+            case("employeeAdd"):
+                if (validator.employeeFormValidate(responseMessagesMap, newE)) {
+                    actor.saveEntry(newE);
+                    responseMessagesMap.put("NEW_EMPLOYEE_SAVE_SUCCESS_MESSAGE", MessageManager.getInstance().getProperty(MessageManager.NEW_EMPLOYEE_SAVE_SUCCESS_MESSAGE));
+                }
+                req.setAttribute("responseMessages", responseMessagesMap);
+                pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.EMPLOYEE_ADD_PAGE_PATH);
+
+                try {
+                    req.getRequestDispatcher(pagePath).forward(req, resp);
+                } catch (ServletException e) {
+                    e.printStackTrace();
+                    errorRedirect(req, resp);
+                }
+                break;
+
+            case("employeeUpdate"):
+                if (validator.employeeUpdFormValidate(responseMessagesMap, newE)) {
+
+                    Set<String> ks = newE.getColoumnValueMap().keySet();
+
+                    for (String col : ks) {
+                        if (!col.contains("_long") && !col.equals("birth_date") && !col.equals("login")) {
+                            actor.updateEntryColoumnWhereId(newE,
+                                    col,
+                                    newE.getId(),
+                                    (String) newE.getColoumnValueMap().get(col));
+                        }
+                    }
+                    actor.updateEntryDate(newE, newE.getId(), (Date) req.getAttribute("birthDate"));
+                    responseMessagesMap.put("EMPLOYEE_RECORD_UPDATE_SUCCESS_MESSAGE", MessageManager.getInstance().getProperty(MessageManager.EMPLOYEE_RECORD_UPDATE_SUCCESS_MESSAGE));
+                }
+                req.setAttribute("responseMessages", responseMessagesMap);
+                pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.EMPLOYEE_UPD_PAGE_PATH);
+
+                try {
+                    req.getRequestDispatcher(pagePath).forward(req, resp);
+                } catch (ServletException e) {
+                    e.printStackTrace();
+                    errorRedirect(req, resp);
+                }
+                break;
         }
+
+
     }
 }

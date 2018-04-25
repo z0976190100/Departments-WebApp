@@ -7,7 +7,6 @@ import java.io.IOException;
 
 public interface Command {
 
-
-        public String execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException;
+        String execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException;
 
 }

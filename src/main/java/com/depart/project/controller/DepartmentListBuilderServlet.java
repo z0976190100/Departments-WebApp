@@ -20,17 +20,17 @@ public class DepartmentListBuilderServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doPost(req, resp);
+        req.setAttribute("departmentList", listUpdate());
+
+        String pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.MAIN_PAGE_PATH);
+        req.getRequestDispatcher(pagePath).forward(req, resp);
+
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        req.setAttribute("departmentList", listUpdate());
-
-       String pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.MAIN_PAGE_PATH);
-       req.getRequestDispatcher(pagePath).forward(req, resp);
-
+        doGet(req, resp);
     }
 
     private List <DepartmentEntityImpl> listUpdate() {

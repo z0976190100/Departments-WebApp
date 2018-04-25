@@ -19,16 +19,16 @@ public class EmployeesListBuilderServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doPost(req, resp);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         req.setAttribute("employeesList", listUpdate(Long.valueOf(req.getParameter("deppid"))));
 
         String pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.DEP_PAGE_PATH);
         req.getRequestDispatcher(pagePath).forward(req, resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doGet(req, resp);
     }
 
     private List<EmployeeEntityImpl> listUpdate(long id) {

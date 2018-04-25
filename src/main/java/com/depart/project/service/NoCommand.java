@@ -11,8 +11,7 @@ public class NoCommand implements Command {
 
     public String execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String pagePath = ConfigurationManager.getInstance().getProperty(ConfigurationManager.LOGIN_PAGE_PATH);
+        return  ConfigurationManager.getInstance().getProperty(ConfigurationManager.LOGIN_PAGE_PATH);
 
-        return pagePath;
     }
 }
