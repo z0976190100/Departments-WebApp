@@ -40,14 +40,14 @@ public class CommandDispatcherServlet extends HttpServlet {
         try{
             Command command = requestHelper.getCommand(req);
             pagePath = command.execute(req, resp);
-        } catch (ServletException | IOException e ){
+        } catch (ServletException | IOException | NullPointerException e ){
             e.printStackTrace();
             errorRedirect(req, resp);
         }
 
         try {
             req.getRequestDispatcher(pagePath).forward(req, resp);
-        } catch (ServletException | IOException e) {
+        } catch (ServletException | IOException | NullPointerException e) {
             e.printStackTrace();
             errorRedirect(req, resp);
         }

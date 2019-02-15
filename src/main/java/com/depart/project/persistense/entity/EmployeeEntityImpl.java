@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class EmployeeEntityImpl implements IEntity {
 
-    private final String TABLE_NAME = "department1.employee2";
+    private final String TABLE_NAME = "employee2";
     private final String UNIQUE_TITLE = "login";
 
 

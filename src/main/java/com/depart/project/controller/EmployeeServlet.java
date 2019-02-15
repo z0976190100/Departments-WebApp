@@ -71,7 +71,7 @@ public class EmployeeServlet extends HttpServlet {
         req.setAttribute("responseMessages", responseMessagesMap);
         try {
             req.getRequestDispatcher(pagePath).forward(req, resp);
-        } catch (ServletException e) {
+        } catch (ServletException | NullPointerException e) {
             e.printStackTrace();
             errorRedirect(req, resp);
         }

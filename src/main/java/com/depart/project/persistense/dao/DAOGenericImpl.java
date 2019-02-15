@@ -6,6 +6,8 @@ import com.depart.project.service.utils.ConfigurationManager;
 import java.sql.*;
 import java.util.Map;
 
+import static com.depart.project.service.utils.MessageManager.errorRedirect;
+
 public class DAOGenericImpl<T> implements DAO<T> {
 
     private Connection getConnection() {
@@ -43,7 +45,7 @@ public class DAOGenericImpl<T> implements DAO<T> {
             ps.executeQuery();
             return ps;
 
-        } catch (SQLException | NullPointerException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
@@ -65,7 +67,7 @@ public class DAOGenericImpl<T> implements DAO<T> {
             connection.close();
             return true;
 
-        } catch (SQLException | NullPointerException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
             return false;
         }
@@ -90,7 +92,7 @@ public class DAOGenericImpl<T> implements DAO<T> {
             connection.close();
             return ps;
 
-        } catch (SQLException | NullPointerException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
@@ -112,7 +114,7 @@ public class DAOGenericImpl<T> implements DAO<T> {
             connection.close();
             return ps;
 
-        } catch (SQLException | NullPointerException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
@@ -138,7 +140,7 @@ public class DAOGenericImpl<T> implements DAO<T> {
             connection.close();
             return ps;
 
-        } catch (SQLException | NullPointerException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
@@ -190,7 +192,7 @@ public class DAOGenericImpl<T> implements DAO<T> {
 
             return true;
 
-        } catch (SQLException | NullPointerException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
             return false;
         }
@@ -211,7 +213,7 @@ public class DAOGenericImpl<T> implements DAO<T> {
 
             return true;
 
-        } catch (SQLException | NullPointerException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
             return false;
         }
@@ -232,7 +234,7 @@ public class DAOGenericImpl<T> implements DAO<T> {
 
             return true;
 
-        } catch (SQLException | NullPointerException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
             return false;
         }
@@ -256,7 +258,7 @@ public class DAOGenericImpl<T> implements DAO<T> {
             ps.executeUpdate();
 
             return true;
-        } catch (SQLException | NullPointerException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
             return false;
         }
